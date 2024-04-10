@@ -8,8 +8,8 @@
     <title>{{ config('app.name') }}</title>
 
     <!-- Google Fonts - Poppins, Karla -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Karla:300,400,500,600,700" rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Karla:300,400,500,600,700" rel="stylesheet"> --}}
 
     <!-- Font Awesome CSS -->
     <link href="{{ asset('vendor/fontawesome/css/all.min.css') }}" rel="stylesheet">

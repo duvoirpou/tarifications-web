@@ -56,8 +56,8 @@
                     <div class="option-box-header">
                         <h3>{{ $item->functionality->name }}</h3>
                         <p>{{ $item->functionality->description }}</p>
-                        {{-- <input type="text" value="{{ $item->functionality->name }}" name="nom">
-                        <input type="text" value="{{ $item->functionality->id }}" name="id"> --}}
+                        {{-- <input type="text" value="{{ $item->functionality->name }}" name="nom"> --}}
+                        <input type="text" value="{{ $item->functionality->id }}" name="id">
                     </div>
                     <div class="col-md-12 col-sm-12">
 
@@ -130,7 +130,7 @@
                             @endif
                         </li>
                         <li>
-                            @if (isset($get_type->name) AND $categorie_id)
+                            @if (isset($get_type->name) AND $categorie_id AND ($categorie_id == $get_type->category_id))
                                 <h6>{{ $get_type->name }}</h6>
                             @endif
                         </li>
