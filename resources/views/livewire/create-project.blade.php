@@ -15,7 +15,7 @@
             </div>
 
             <div class="option-box-header">
-                <div class="price-element"></div>
+
                 <h3>Catégories & types de projet</h3>
                 <p>
                     @if ($type_id && $type_id != 0)
@@ -141,6 +141,8 @@
                         <li id="extraOption1Sum"></li>
                         <li id="extraOption2Sum"></li> --}}
                     </ul>
+
+                    <div class="price-element" hidden></div>
                     <div class="row total-container">
                         <div class="col-6 p-0">
                             <h6> Total :</h6>
