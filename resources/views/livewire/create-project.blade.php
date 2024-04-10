@@ -157,16 +157,16 @@
             <div class="row">
                 <div class="col-lg-12">
                     <button type="submit" name="submit" class="btn-form-func">
-                        <span class="btn-form-func-content">SUBMIT</span>
+                        <span class="btn-form-func-content">SOUMETTRE</span>
                         <span class="icon"><i class="fa fa-check" aria-hidden="true"></i></span>
                     </button>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <button type="button" name="reset" id="resetBtn"
+                    <button type="reset" name="reset" id="resetBtn"
                         class="btn-form-func btn-form-func-alt-color">
-                        <span class="btn-form-func-content">RESET</span>
+                        <span class="btn-form-func-content">ANNULER</span>
                         <span class="icon"><i class="fa fa-times" aria-hidden="true"></i></span>
                     </button>
                 </div>

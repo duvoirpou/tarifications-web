@@ -10,17 +10,17 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-6">
-                <div id="logo">
+                {{-- <div id="logo">
                     <h1><a href="index.html" title="Costy">Costy</a></h1>
-                </div>
+                </div> --}}
             </div>
             <div class="col-lg-9 col-6">
-                <ul id="menuIcons">
+                {{-- <ul id="menuIcons">
                     <li><a href="#"><i class="icon icon-support"></i></a></li>
                     <li><a href="#"><i class="icon icon-shopping-cart2"></i></a></li>
-                </ul>
+                </ul> --}}
                 <!-- Menu -->
-                <nav id="menu" class="main-menu">
+                {{-- <nav id="menu" class="main-menu">
                     <ul>
                         <li><span><a href="index.html">Home</a></span></li>
                         <li>
@@ -50,7 +50,7 @@
                         <li><span><a href="faq.html">Faq</a></span></li>
                         <li><span><a href="contacts.html">Contacts</a></span></li>
                     </ul>
-                </nav>
+                </nav> --}}
                 <!-- Menu End -->
             </div>
         </div>
@@ -61,7 +61,7 @@
 <!-- Sub Header -->
 <div class="sub-header">
     <div class="container">
-        <h1>Calculator Demo 1</h1>
+        <h1>Tarifications web</h1>
     </div>
 </div>
 <!-- Sub Header End -->

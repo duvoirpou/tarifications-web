@@ -50,7 +50,7 @@
         <!-- Content end -->
 
         <!-- Footer -->
-        @include('partials._footer')
+        {{-- @include('partials._footer') --}}
         <!-- Footer end -->
     </div>
 	<!-- Page End -->
