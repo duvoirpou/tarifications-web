@@ -71,12 +71,12 @@
         <!-- Personal Details -->
         <div id="personalDetails" class="row contact-box">
             <div class="contact-box-header">
-                <h3>Contact Details</h3>
-                <p>Please give VALID email to check the result.</p>
+                <h3>Détails du client</h3>
+                <p>Veuillez donner un e-mail VALIDE pour vérifier le résultat.</p>
             </div>
             <div class="col-md-6 col-sm-6">
                 <div class="form-group">
-                    <label for="userName">Full Name</label>
+                    <label for="userName">Nom complet</label>
                     <input id="userName" class="form-control" name="username" type="text"
                         data-parsley-pattern="^[a-zA-Z\s.]+$" required />
                 </div>
@@ -89,14 +89,14 @@
             </div>
             <div class="col-md-6 col-sm-6">
                 <div class="form-group">
-                    <label for="phone">Phone e.g.: +12345</label>
+                    <label for="phone">Téléphone</label>
                     <input id="phone" class="form-control" name="phone" type="text"
                         data-parsley-pattern="^\+{1}[0-9]+$" />
                 </div>
             </div>
             <div class="col-md-6 col-sm-6">
                 <div class="form-group">
-                    <label for="address">Address</label>
+                    <label for="address">Adresse</label>
                     <input id="address" class="form-control" name="address" type="text"
                         data-parsley-pattern="^[,.a-zA-Z0-9\s.]+$" />
                 </div>
@@ -116,7 +116,7 @@
             <div class="row">
                 <div class="col-md-12">
 
-                    <h3>Order Summary</h3>
+                    <h3>Récapitulatif de la commande</h3>
                     <ul id="orderSumList">
                         {{-- <li id="optionGroup1Sum"></li>
                         <li id="optionGroup2Sum"></li>
