@@ -130,7 +130,8 @@
 
                         </div>
                         <div class="col-6 p-0">
-                            $ 0.00
+                            <sup>XAF</sup>
+                            <span id="totalPriceValue"></span>
 
                         </div>
                     </div>
@@ -140,7 +141,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <input type="checkbox" id="cbx" class="inp-cbx" name="terms" value="yes"
+                        {{-- <input type="checkbox" id="cbx" class="inp-cbx" name="terms" value="yes"
                             required />
                         <label class="cbx terms" for="cbx">
                             <span>
@@ -149,7 +150,7 @@
                                 </svg>
                             </span>
                             <span>Accept<a href="pdf/terms.pdf" class="terms-link" target="_blank">Terms</a>.</span>
-                        </label>
+                        </label> --}}
                     </div>
                 </div>
             </div>
@@ -172,7 +173,7 @@
             </div>
             <div class="row footer">
                 <div class="col-lg-12 text-center">
-                    <small>&copy; 2020 Your Company.</small>
+                    <small>&copy; 2024 Tala.</small>
                 </div>
             </div>
         </div>
@@ -180,9 +181,11 @@
     </div>
 
     <script>
+        let typePrice = 0;
+
         function updatePrice(value) {
             // Récupérer le prix du type de projet
-            const typePrice = parseFloat(document.querySelector('.typePrice').innerHTML);
+            typePrice = parseFloat(document.querySelector('.typePrice').innerHTML);
 
             // Récupérer toutes les cases à cocher
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -203,6 +206,13 @@
             const priceElement = document.querySelector('.price-element');
             priceElement.innerHTML = totalValue;
 
+            // Mettre à jour le prix total
+            const totalPriceValue = document.querySelector('#totalPriceValue');
+            totalPriceValue.innerHTML = typePrice + totalValue;
+
         }
     </script>
+
+
+
 </div>
