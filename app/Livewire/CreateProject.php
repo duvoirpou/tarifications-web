@@ -17,6 +17,7 @@ class CreateProject extends Component
     public $types_functionalities;
     public $typePrice=0;
     public $get_type;
+    public $get_categorie;
 
     public function mount()
     {
@@ -29,6 +30,7 @@ class CreateProject extends Component
         if ($this->categorie_id) {
             $this->types = Type::where('category_id', $this->categorie_id)->get();
 
+            $this->get_categorie = Category::where('id', $this->categorie_id)->first();
         } else {
             $this->types = [];
         }

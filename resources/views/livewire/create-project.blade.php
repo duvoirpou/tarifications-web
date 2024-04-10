@@ -4,7 +4,7 @@
         <!-- Calculator Area -->
         <div id="optionGroup1" class="row option-box">
             <div class="ribbon-left"><span class="left">Populaires</span></div>
-            <span class="price-box-desc">From</span>
+            <span class="price-box-desc">Prix</span>
             <div class="price-box w-25">
                 <sup>XAF</sup>
                 @if ($categorie_id)
@@ -20,6 +20,8 @@
                 <p>
                     @if ($type_id && $type_id != 0)
                         {{ $get_type->description }}
+                    @else
+                        Choisissez une catégorie et un type de projet pour voir la description
                     @endif
                 </p>
             </div>
@@ -46,6 +48,7 @@
                 </div>
             </div>
         </div>
+
         @if ($type_id)
             @foreach ($types_functionalities as $item)
                 <div id="extraOptionGroup1" class="row option-box">
@@ -53,6 +56,8 @@
                     <div class="option-box-header">
                         <h3>{{ $item->functionality->name }}</h3>
                         <p>{{ $item->functionality->description }}</p>
+                        {{-- <input type="text" value="{{ $item->functionality->name }}" name="nom">
+                        <input type="text" value="{{ $item->functionality->id }}" name="id"> --}}
                     </div>
                     <div class="col-md-12 col-sm-12">
 
@@ -118,6 +123,18 @@
 
                     <h3>Récapitulatif de la commande</h3>
                     <ul id="orderSumList">
+
+                        <li>
+                            @if (isset($get_categorie->name) AND $categorie_id)
+                                <h6>{{ $get_categorie->name }}</h6>
+                            @endif
+                        </li>
+                        <li>
+                            @if (isset($get_type->name) AND $categorie_id)
+                                <h6>{{ $get_type->name }}</h6>
+                            @endif
+                        </li>
+
                         {{-- <li id="optionGroup1Sum"></li>
                         <li id="optionGroup2Sum"></li>
                         <li id="optionGroup3Sum"></li>
