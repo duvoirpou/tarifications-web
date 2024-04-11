@@ -29,8 +29,6 @@ class OrderController extends Controller
             "total_amount.required" => "Please enter total amount of the orders"
         ]);
 
-        $email = $request->customer_email;
-
         $order = new Order();
         $order->type_id = $request->type_id;
         $order->customer_name = $request->customer_name;
@@ -42,23 +40,29 @@ class OrderController extends Controller
 
         $order->save();
 
-        // Order details
-        // Récupérer les valeurs de 'functionality_id' de la requête (qui seront dans un tableau)
-        $functionalityIds = $request->input('functionality_id');
-        foreach ($functionalityIds as $functionalityId) {
-            OrderDetail::create([
-                'order_id' => $order->id,
-                'functionality_id' => $functionalityId
-            ]);
+        if ($order) {
+            # code...
+            // Récupérer les valeurs de 'functionality_id' de la requête (qui seront dans un tableau)
+            $functionalityIds = $request->input('functionality_id');
+            foreach ($functionalityIds as $functionalityId) {
+                $order_details = OrderDetail::create([
+                    'order_id' => $order->id,
+                    'functionality_id' => $functionalityId
+                ]);
+            }
+        } else {
+            return back()->with('error', 'Order creation failed');
         }
+
+        // Envoi d'un email de confirmation au client
 
         // Création d'un nouvel email
         Mail::send('emails.welcome', ['name' => $request->customer_name], function ($message) use ($request) {
             $email = $request->customer_email;  // Assign email inside the closure
-            $message->to($email)->subject('Order Confirmation');
+            $message->to($email)->subject('Confirmation de la commande de votre projet web');
         });
 
-        if ($order) {
+        if ($order AND $order_details) {
             return back()->with('success', 'Order created successfully');
         } else {
             return back()->with('error', 'Order creation failed');
