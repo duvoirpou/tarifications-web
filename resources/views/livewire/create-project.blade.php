@@ -57,7 +57,7 @@
                         <h3>{{ $item->functionality->name }}</h3>
                         <p>{{ $item->functionality->description }}</p>
                         {{-- <input type="text" value="{{ $item->functionality->name }}" name="nom"> --}}
-                        <input type="text" value="{{ $item->functionality->id }}" name="id">
+                        <input type="text" value="{{ $item->functionality->id }}" name="functionality_id[]">
                     </div>
                     <div class="col-md-12 col-sm-12">
 
@@ -81,35 +81,35 @@
             </div>
             <div class="col-md-6 col-sm-6">
                 <div class="form-group">
-                    <label for="userName">Nom complet</label>
-                    <input id="userName" class="form-control" name="username" type="text"
+                    <label for="customer_name">Nom complet</label>
+                    <input id="customer_name" class="form-control" name="customer_name" type="text"
                         data-parsley-pattern="^[a-zA-Z\s.]+$" required />
                 </div>
             </div>
             <div class="col-md-6 col-sm-6">
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input id="email" class="form-control" name="email" type="email" required />
+                    <label for="customer_email">Email</label>
+                    <input id="customer_email" class="form-control" name="customer_email" type="customer_email" required />
                 </div>
             </div>
             <div class="col-md-6 col-sm-6">
                 <div class="form-group">
-                    <label for="phone">Téléphone</label>
-                    <input id="phone" class="form-control" name="phone" type="text"
+                    <label for="customer_phone">Téléphone</label>
+                    <input id="customer_phone" class="form-control" name="customer_phone" type="text"
                         data-parsley-pattern="^\+{1}[0-9]+$" />
                 </div>
             </div>
             <div class="col-md-6 col-sm-6">
                 <div class="form-group">
-                    <label for="address">Adresse</label>
-                    <input id="address" class="form-control" name="address" type="text"
+                    <label for="customer_address">Adresse</label>
+                    <input id="customer_address" class="form-control" name="customer_address" type="text"
                         data-parsley-pattern="^[,.a-zA-Z0-9\s.]+$" />
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-group">
                     <label for="inputMessage">Message</label>
-                    <textarea class="form-control" id="inputMessage" name="message" data-parsley-pattern="^[a-zA-Z0-9\s.:,!?']+$"></textarea>
+                    <textarea class="form-control" id="inputMessage" name="additional_information" data-parsley-pattern="^[a-zA-Z0-9\s.:,!?']+$"></textarea>
                 </div>
             </div>
         </div>
@@ -151,7 +151,7 @@
                         <div class="col-6 p-0">
                             <sup>XAF</sup>
                             <span id="totalPriceValue"></span>
-
+                            <input type="hidden" id="totalPriceInputValue" name="total_amount">
                         </div>
                     </div>
                     <div id="totalError"></div>
@@ -227,7 +227,9 @@
 
             // Mettre à jour le prix total
             const totalPriceValue = document.querySelector('#totalPriceValue');
+            const totalPriceInputValue = document.querySelector('#totalPriceInputValue');
             totalPriceValue.innerHTML = typePrice + totalValue;
+            totalPriceInputValue.value = typePrice + totalValue;
 
         }
     </script>

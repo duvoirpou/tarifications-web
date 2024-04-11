@@ -7,7 +7,9 @@
         <div class="order">
             <div class="container">
                 <!-- Form -->
-                <form method="POST" id="orderForm" name="orderForm" action="php/send_order_1_attached_pdf.php">
+                {{-- <form method="POST" id="orderForm" name="orderForm" action="php/send_order_1_attached_pdf.php"> --}}
+                <form method="POST" id="orderForm" name="orderForm" action="{{ route('order.store') }}">
+                    @csrf
 
                     @livewire('create-project')
 
