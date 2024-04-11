@@ -44,7 +44,6 @@ class OrderController extends Controller
         $order->save();
 
         if ($order) {
-            # code...
             // Récupérer les valeurs de 'functionality_id' de la requête (qui seront dans un tableau)
             $functionalityIds = $request->input('functionality_id');
             foreach ($functionalityIds as $functionalityId) {
@@ -60,7 +59,7 @@ class OrderController extends Controller
         // Envoi d'un email de confirmation au client
 
         // Création d'un nouvel email
-        Mail::send('emails.welcome', ['name' => $request->customer_name], function ($message) use ($request) {
+        Mail::send('emails.order', ['name' => $request->customer_name], function ($message) use ($request) {
             $email = $request->customer_email;  // Assign email inside the closure
             $message->to($email)->subject('Confirmation de la commande de votre projet web');
         });
