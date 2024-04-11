@@ -16,7 +16,7 @@
 
             <div class="option-box-header">
 
-                <h3>Catégories & types de projet</h3>
+                <h3>Catégories & types</h3>
                 <p>
                     @if ($type_id && $type_id != 0)
                         {{ $get_type->description }}
@@ -25,7 +25,12 @@
                     @endif
                 </p>
             </div>
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-4 col-sm-4">
+                <label for="project_name">Nom du projet</label>
+                    <input id="project_name" class="form-control" name="project_name" type="text" required/>
+
+            </div>
+            <div class="col-md-4 col-sm-4">
                 <select wire:model.live="categorie_id" wire:loading.attr='disabled' class="wide nice-select"
                     id="categorie" name="categorie_id">
                     <option value="">-- Choisir une catégorie --</option>
@@ -34,7 +39,7 @@
                     @endforeach
                 </select>
             </div>
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-4 col-sm-4">
                 <div class="" wire:loading.delay><b>Chargement...</b></div>
                 <div wire:loading.delay.remove>
                     <select wire:model.live="type_id" id="type" class="wide nice-select" name="type_id">
@@ -57,7 +62,7 @@
                         <h3>{{ $item->functionality->name }}</h3>
                         <p>{{ $item->functionality->description }}</p>
                         {{-- <input type="text" value="{{ $item->functionality->name }}" name="nom"> --}}
-                        <input type="text" value="{{ $item->functionality->id }}" name="functionality_id[]">
+                        <input type="hidden" value="{{ $item->functionality->id }}" name="functionality_id[]">
                     </div>
                     <div class="col-md-12 col-sm-12">
 

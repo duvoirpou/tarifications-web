@@ -14,6 +14,7 @@ class OrderController extends Controller
         // dd($request->all());
         $request->validate([
             "type_id" => "required|numeric",
+            "project_name" => "required|string",
             "customer_name" => "required|string",
             "customer_email" => "required|email",
             "customer_phone" => "required|string",
@@ -23,6 +24,7 @@ class OrderController extends Controller
 
         ], [
             "type_id.required" => "Please select a type",
+            "project_name.required" => "Please enter project name",
             "customer_name.required" => "Please enter customer names",
             "customer_email.required" => "Please enter customer email",
             "customer_phone.required" => "Please enter customer phone number",
@@ -31,6 +33,7 @@ class OrderController extends Controller
 
         $order = new Order();
         $order->type_id = $request->type_id;
+        $order->project_name = $request->project_name;
         $order->customer_name = $request->customer_name;
         $order->customer_email = $request->customer_email;
         $order->customer_phone = $request->customer_phone;
