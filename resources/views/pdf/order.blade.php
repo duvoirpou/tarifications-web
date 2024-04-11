@@ -47,9 +47,8 @@
         }
 
         .logo {
-    float: right;
-    margin-top: 10px;
-}
+            float: right;
+        }
 
         .text-center {
             text-align: center;
@@ -68,24 +67,24 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="{{ asset('img/Tala-1.png') }}" style="width: 200px;" alt="Logo de votre entreprise"
+            <img src="{{ public_path('storage/images/Tala-1.png') }}" style="width: 200px;" alt="Logo de votre entreprise"
                 class="logo">
-            <h1>Devis pour [Nom du projet]</h1>
+            <h1>Devis pour {{ $order->project_name }}</h1>
         </div>
 
         <div class="client-info">
             <h2>Client :</h2>
             <p>
-                [Nom du client]
+                {{ $order->customer_name }}
             </p>
             <p>
-                [Email du client]
+                {{ $order->customer_email }}
             </p>
             <p>
-                [Phone du client]
+                {{ $order->customer_phone }}
             </p>
             <p>
-                [Adresse du client]
+                {{ $order->customer_address }}
             </p>
         </div>
 

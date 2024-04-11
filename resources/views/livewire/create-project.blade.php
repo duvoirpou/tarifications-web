@@ -25,11 +25,7 @@
                     @endif
                 </p>
             </div>
-            <div class="col-md-4 col-sm-4">
-                <label for="project_name">Nom du projet</label>
-                    <input id="project_name" class="form-control" name="project_name" type="text" required/>
 
-            </div>
             <div class="col-md-4 col-sm-4">
                 <select wire:model.live="categorie_id" wire:loading.attr='disabled' class="wide nice-select"
                     id="categorie" name="categorie_id">
@@ -51,6 +47,11 @@
                         @endif
                     </select>
                 </div>
+            </div>
+            <div class="col-md-4 col-sm-4" wire:ignore.self >
+                <label for="project_name">Nom du projet</label>
+                    <input id="project_name" class="form-control" name="project_name" type="text" required/>
+
             </div>
         </div>
 
