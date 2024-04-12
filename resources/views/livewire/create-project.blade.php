@@ -9,7 +9,7 @@
                 <sup>XAF</sup>
                 @if ($categorie_id)
                     <span class="typePrice" hidden>{{ $typePrice }}</span>
-                    <span >{{ number_format($typePrice, 2, ',', ' ') }}</span>
+                    <span>{{ number_format($typePrice, 2, ',', ' ') }}</span>
                 @else
                     <span class="typePrice">0</span>
                 @endif
@@ -65,12 +65,26 @@
                         <p>{{ $item->functionality->description }}</p>
                     </div>
                     <div class="col-md-12 col-sm-12">
-                        <label class="cbx" for="">
+                        <input type="checkbox" id="extraOption{{ $item->functionality->id }}" class="inp-cbx"
+                            name="selected_functionalities_ids[]" value="{{ $item->functionality->id }}"
+                            data-autre-valeur="{{ $item->functionality->ranking->coefficient }}"
+                            onchange="updatePrice(this.value)" />
+                        <label class="cbx" for="extraOption{{ $item->functionality->id }}">
+                            <span>
+                                <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                    <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                </svg>
+                            </span>
+                            <span id="extraOption1Title">
+                                Option {{ $loop->iteration }}
+                            </span>
+                        </label>
+                        {{-- <label class="cbx" for="">
                             <input type="checkbox" name="selected_functionalities_ids[]"
                                 value="{{ $item->functionality->id }}" data-autre-valeur="{{ $item->functionality->ranking->coefficient }}"
                                 style="font-size: 1.5rem !important;" onchange="updatePrice(this.value)" />
                             <span id="extraOption1Title">Choisir</span>
-                        </label>
+                        </label> --}}
                     </div>
                 </div>
             @endforeach
@@ -126,7 +140,7 @@
             <div class="row">
                 <div class="col-md-12">
 
-                    <h3>Récapitulatif de la commande</h3>
+                    <h3>Récapitulatif</h3>
                     <ul id="orderSumList">
 
                         <li>
@@ -175,7 +189,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <button type="submit" name="submit" class="btn-form-func">
+                    <button type="submit" name="submit" class="btn-form-func" id="submitBtn">
                         <span class="btn-form-func-content">SOUMETTRE</span>
                         <span class="icon"><i class="fa fa-check" aria-hidden="true"></i></span>
                     </button>
@@ -232,7 +246,7 @@
             totalPriceInputValue.value = typePrice + totalValue;
 
         }
-      </script>
+    </script>
 
 
 
