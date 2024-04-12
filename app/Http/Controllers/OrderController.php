@@ -85,20 +85,22 @@ class OrderController extends Controller
             ])->setPaper('a4', 'landscape');
 
             // Envoyer un courriel de confirmation au client avec la facture en pièce jointe
-            /* Mail::send('emails.order', [
+            Mail::send('emails.order', [
                 "order" => $order,
                 "order_details" => $order_details,
             ], function ($message) use ($request, $order, $order_details) {
                 $email = $request->customer_email;  // Assign email inside the closure
+                $functionalities = OrderDetail::where('order_id', $order_details->order_id)->with('functionality')->get();
                 // Generate PDF invoice file
                 $pdf = Pdf::loadView('pdf.order', [
                     "order" => $order,
                     "order_details" => $order_details,
+                    "functionalities" => $functionalities
                 ])->setPaper('a4', 'landscape');
                 $message->to($email)
                         ->subject('Confirmation de la commande de votre projet web')
                         ->attachData($pdf->output(), "commande-$order->project_name.pdf");
-            }); */
+            });
 
             return $pdf->download("commande-$order->project_name.pdf");
 
