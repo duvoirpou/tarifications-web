@@ -8,7 +8,8 @@
             <div class="price-box w-25">
                 <sup>XAF</sup>
                 @if ($categorie_id)
-                    <span class="typePrice">{{ $typePrice }}</span>
+                    <span class="typePrice" hidden>{{ $typePrice }}</span>
+                    <span >{{ number_format($typePrice, 2, ',', ' ') }}</span>
                 @else
                     <span class="typePrice">0</span>
                 @endif
@@ -227,7 +228,7 @@
             // Mettre à jour le prix total
             const totalPriceValue = document.querySelector('#totalPriceValue');
             const totalPriceInputValue = document.querySelector('#totalPriceInputValue');
-            totalPriceValue.innerHTML = typePrice + totalValue;
+            totalPriceValue.innerHTML = (typePrice + totalValue).toLocaleString();
             totalPriceInputValue.value = typePrice + totalValue;
 
         }
