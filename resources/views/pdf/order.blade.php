@@ -112,8 +112,8 @@
 
         {{-- <p>
             <strong>Fonctionnalités :</strong>
-            @foreach ($order->features as $feature)
-                <span class="badge badge-primary">{{ $feature->name }}</span>
+            @foreach ($functionalities as $feature)
+                <span class="badge badge-primary">{{ $feature->functionality->name }}</span>
             @endforeach
         </p> --}}
         <p>

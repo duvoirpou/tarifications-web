@@ -13,4 +13,9 @@ class Functionality extends Model
     public function ranking(){
         return $this->belongsTo(Ranking::Class,'ranking_id','id');
     }
+
+    public function functionalities()
+    {
+        return $this->hasMany(Functionality::class);
+    }
 }

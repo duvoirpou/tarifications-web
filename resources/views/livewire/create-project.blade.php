@@ -48,9 +48,9 @@
                     </select>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-4" wire:ignore.self >
+            <div class="col-md-4 col-sm-4" wire:ignore.self>
                 <label for="project_name">Nom du projet</label>
-                    <input id="project_name" class="form-control" name="project_name" type="text" required/>
+                <input id="project_name" class="form-control" name="project_name" type="text" required />
 
             </div>
         </div>
@@ -62,16 +62,12 @@
                     <div class="option-box-header">
                         <h3>{{ $item->functionality->name }}</h3>
                         <p>{{ $item->functionality->description }}</p>
-                        {{-- <input type="text" value="{{ $item->functionality->name }}" name="nom"> --}}
-                        <input type="hidden" value="{{ $item->functionality->id }}" name="functionality_id[]">
                     </div>
                     <div class="col-md-12 col-sm-12">
-
                         <label class="cbx" for="">
-                            <input type="checkbox" id="" class="" name=""
-                                value="{{ $item->functionality->ranking->coefficient }}"
+                            <input type="checkbox" name="selected_functionalities_ids[]"
+                                value="{{ $item->functionality->id }}" data-autre-valeur="{{ $item->functionality->ranking->coefficient }}"
                                 style="font-size: 1.5rem !important;" onchange="updatePrice(this.value)" />
-
                             <span id="extraOption1Title">Choisir</span>
                         </label>
                     </div>
@@ -95,7 +91,8 @@
             <div class="col-md-6 col-sm-6">
                 <div class="form-group">
                     <label for="customer_email">Email</label>
-                    <input id="customer_email" class="form-control" name="customer_email" type="customer_email" required />
+                    <input id="customer_email" class="form-control" name="customer_email" type="customer_email"
+                        required />
                 </div>
             </div>
             <div class="col-md-6 col-sm-6">
@@ -115,7 +112,8 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label for="inputMessage">Message</label>
-                    <textarea class="form-control" id="inputMessage" name="additional_information" data-parsley-pattern="^[a-zA-Z0-9\s.:,!?']+$"></textarea>
+                    <textarea class="form-control" id="inputMessage" name="additional_information"
+                        data-parsley-pattern="^[a-zA-Z0-9\s.:,!?']+$"></textarea>
                 </div>
             </div>
         </div>
@@ -131,21 +129,16 @@
                     <ul id="orderSumList">
 
                         <li>
-                            @if (isset($get_categorie->name) AND $categorie_id)
+                            @if (isset($get_categorie->name) and $categorie_id)
                                 <h6>{{ $get_categorie->name }}</h6>
                             @endif
                         </li>
                         <li>
-                            @if (isset($get_type->name) AND $categorie_id AND ($categorie_id == $get_type->category_id))
+                            @if (isset($get_type->name) and $categorie_id and $categorie_id == $get_type->category_id)
                                 <h6>{{ $get_type->name }}</h6>
                             @endif
                         </li>
 
-                        {{-- <li id="optionGroup1Sum"></li>
-                        <li id="optionGroup2Sum"></li>
-                        <li id="optionGroup3Sum"></li>
-                        <li id="extraOption1Sum"></li>
-                        <li id="extraOption2Sum"></li> --}}
                     </ul>
 
                     <div class="price-element" hidden></div>
@@ -219,7 +212,7 @@
             const totalValue = [...checkboxes].reduce((acc, checkbox) => {
                 if (checkbox.checked) {
                     // Multiplier le coefficient par le prix du type de projet
-                    const coefficient = parseFloat(checkbox.value) * typePrice;
+                    const coefficient = parseFloat(checkbox.getAttribute('data-autre-valeur')) * typePrice;
 
                     return acc + coefficient;
                 }
@@ -238,7 +231,8 @@
             totalPriceInputValue.value = typePrice + totalValue;
 
         }
-    </script>
+      </script>
+
 
 
 

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Functionality;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -56,13 +58,14 @@ class OrderController extends Controller
 
         if ($order) {
             // Récupérer les valeurs de 'functionality_id' de la requête (qui seront dans un tableau)
-            $functionalityIds = $request->input('functionality_id');
-            foreach ($functionalityIds as $functionalityId) {
+            $functionalities_ids = $request->input('selected_functionalities_ids');
+            foreach ($functionalities_ids as $item) {
                 $order_details = OrderDetail::create([
                     'order_id' => $order->id,
-                    'functionality_id' => $functionalityId
+                    'functionality_id' => $item
                 ]);
             }
+            //$functionality = Functionality::where('id', $functionalityId)->first();
         } else {
             return back()->with('error', 'Order creation failed');
         }
@@ -70,10 +73,15 @@ class OrderController extends Controller
         // Vérifier si la commande et les détails de la commande ont été créés avec succès
 
         if ($order AND $order_details) {
+
+            $functionalities = OrderDetail::where('order_id', $order_details->order_id)->with('functionality')->get();
+
             // Générer une facture au format PDF
             $pdf = Pdf::loadView('pdf.order', [
                 "order" => $order,
-                "order_details" => $order_details
+                "order_details" => $order_details,
+                "functionalities" => $functionalities
+
             ])->setPaper('a4', 'landscape');
 
             // Envoyer un courriel de confirmation au client avec la facture en pièce jointe
@@ -85,7 +93,7 @@ class OrderController extends Controller
                 // Generate PDF invoice file
                 $pdf = Pdf::loadView('pdf.order', [
                     "order" => $order,
-                    "order_details" => $order_details
+                    "order_details" => $order_details,
                 ])->setPaper('a4', 'landscape');
                 $message->to($email)
                         ->subject('Confirmation de la commande de votre projet web')
