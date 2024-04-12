@@ -9,7 +9,7 @@ class Type extends Model
 {
     use HasFactory;
 
-    public function categorie()
+    public function category()
     {
         return $this->belongsTo(Category::class);
     }

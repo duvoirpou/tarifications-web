@@ -20,7 +20,6 @@ class OrderController extends Controller
             "customer_email" => "required|email",
             "customer_phone" => "required|string",
             "customer_address" => "string",
-            "additional_information" => "string",
             "total_amount" => "required",
 
         ], [
@@ -48,7 +47,9 @@ class OrderController extends Controller
         $order->customer_email = $customer_email;
         $order->customer_phone = $customer_phone;
         $order->customer_address = $customer_address;
-        $order->additional_information = $additional_information;
+        if ($additional_information) {
+            $order->additional_information = $additional_information;
+        }
         $order->total_amount = $total_amount;
 
         $order->save();
@@ -66,21 +67,32 @@ class OrderController extends Controller
             return back()->with('error', 'Order creation failed');
         }
 
-        // Envoi d'un email de confirmation au client
-
-        // Création d'un nouvel email
-        /* Mail::send('emails.order', ['name' => $request->customer_name], function ($message) use ($request) {
-            $email = $request->customer_email;  // Assign email inside the closure
-            $message->to($email)->subject('Confirmation de la commande de votre projet web');
-        }); */
+        // Vérifier si la commande et les détails de la commande ont été créés avec succès
 
         if ($order AND $order_details) {
-            //return back()->with('success', 'Order created successfully');
+            // Générer une facture au format PDF
             $pdf = Pdf::loadView('pdf.order', [
                 "order" => $order,
                 "order_details" => $order_details
             ])->setPaper('a4', 'landscape');
-            return $pdf->download("commande.pdf");
+
+            // Envoyer un courriel de confirmation au client avec la facture en pièce jointe
+            Mail::send('emails.order', [
+                "order" => $order,
+                "order_details" => $order_details,
+            ], function ($message) use ($request, $order, $order_details) {
+                $email = $request->customer_email;  // Assign email inside the closure
+                // Generate PDF invoice file
+                $pdf = Pdf::loadView('pdf.order', [
+                    "order" => $order,
+                    "order_details" => $order_details
+                ])->setPaper('a4', 'landscape');
+                $message->to($email)
+                        ->subject('Confirmation de la commande de votre projet web')
+                        ->attachData($pdf->output(), "commande-$order->project_name.pdf");
+            });
+
+            return $pdf->download("commande-$order->project_name.pdf");
 
         } else {
             return back()->with('error', 'Order creation failed');

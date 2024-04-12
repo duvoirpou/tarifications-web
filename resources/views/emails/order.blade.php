@@ -4,17 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devis - [Nom de votre entreprise]</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Devis - {{ $order->project_name }}</title>
 
     <style>
         body {
             font-family: sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin-top: 0;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-bottom: 20px;
         }
 
         th,
@@ -33,54 +48,58 @@
 
         .logo {
             float: right;
-            margin-top: 10px;
         }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .table-bordered {
+            background-color: #adb5bd;
+        }
+
+
     </style>
 </head>
 
 <body>
-    <div class="container mt-5">
-        <img src="{{ asset('img/Tala-2.png') }}" style="width: 200px; margin-top: -70px" alt="Logo de votre entreprise" class="logo">
-        <h1>Devis pour [Nom du projet]</h1>
-        <p>Client : [Nom du client]</p>
-        <p>Email : [Email du client]</p>
-        <p>Téléphone : [Numéro du client]</p>
-        <p>Adresse : [Adresse du client]</p>
-        <p>Message : [Message du client]</p>
-        <table class="table table-success table-bordered">
-            <thead>
-                <tr>
-                    <th>Catégorie</th>
-                    <th>Type</th>
-                    <th>Fonctionnalité</th>
-                    <th>Prix</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>[Catégorie du projet]</td>
-                    <td>[Type de projet]</td>
-                    <td>[Fonctionnalité 1]</td>
-                    <td>[Prix de la fonctionnalité 1]</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>[Fonctionnalité 2]</td>
-                    <td>[Prix de la fonctionnalité 2]</td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th colspan="3" class="total">Total</th>
-                    <td class="total">[Prix total du projet]</td>
-                </tr>
-            </tfoot>
-        </table>
-        <p style="text-align: center;">Imprimé le : <?= date('d/m/Y') ?> à <?= date('H:i:s') ?> par l'impressionneuse.
-        <p style="text-align: center;">
-            <a href="https://www.tala.cg">www.tala.cg</a>
-        </p>
+    <div class="container">
+        <div class="introduction" style="text-align: justify">
+            <p style="margin-top: 10px"><b>Madame, Monsieur,</b></p>
+
+            <p style="margin-top: 10px">
+                Je m'appelle Précieux Assako et je suis développeur web. Je vous remercie de l'intérêt que vous portez
+                pour mes services et pour votre projet <b> [Nom du projet]</b>.
+            </p>
+            <p style="margin-top: 10px">
+                Je vous adresse ci-joint le devis pour la réalisation de ce projet. Il détaille les différentes
+                prestations que je propose, ainsi que leur prix.
+            </p>
+            <p style="margin-top: 10px">
+                N'hésitez pas à me contacter si vous avez des questions ou si vous souhaitez modifier ce devis.
+            </p>
+        </div>
+
+        <div class="contact">
+            <p style="margin-top: 10px">Cordialement,</p>
+            <p style="margin-top: 10px">
+                <b>Précieux Assako</b>
+            </p>
+            <p style="margin-top: 10px">
+                <b>Développeur Web</b>
+            </p>
+            <p  style="margin-top: 10px">
+                <b>+242 06 989 71 69</b>
+            </p>
+        </div>
+
+        <div class="ps">
+            <p  style="margin-top: 10px"><b> P.S.</b> Si vous validez ce devis, merci de me le retourner signé et accompagné d'un acompte de 50%.</p>
+        </div>
     </div>
 </body>
 

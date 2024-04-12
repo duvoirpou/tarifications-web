@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devis - [Nom de votre entreprise]</title>
+    <title>Devis - {{ $order->project_name }}</title>
 
     <style>
         body {
@@ -88,45 +88,41 @@
             </p>
         </div>
 
-        <div class="message">
-            <h2>Message :</h2>
-            <p>[Message du client]</p>
-        </div>
+        @if ($order->additional_information)
+            <div class="message">
+                <h2>Message :</h2>
+                <p>{{ $order->additional_information }}</p>
+            </div>
+        @endif
 
         <hr>
 
-        <div class="introduction">
-            <p><b>Madame, Monsieur,</b></p>
+        <h2>Récapitulatif :</h2>
+        <p>
+            <strong>Catégorie :</strong> {{ $order->type->category->name }}
+        </p>
 
-            <p>
-                Je m'appelle Précieux Assako et je suis développeur web. Je vous remercie de l'intérêt que vous portez
-                pour mes services et pour votre projet [Nom du projet].
-            </p>
-            <p>
-                Je vous adresse ci-joint le devis pour la réalisation de ce projet. Il détaille les différentes
-                prestations que je propose, ainsi que leur prix.
-            </p>
-            <p>
-                N'hésitez pas à me contacter si vous avez des questions ou si vous souhaitez modifier ce devis.
-            </p>
-        </div>
+        <p>
+            <strong>Type :</strong> {{ $order->type->name }}
+            @if ($order->type->description)
+                <p>{{ $order->type->description }}</p>
+            @endif
 
-        <div class="contact">
-            <p>Cordialement,</p>
-            <p>
-                <b>Précieux Assako</b>
-            </p>
-            <p>
-                <b>Développeur Web</b>
-            </p>
-            <p>
-                <b>+242 06 989 71 69</b>
-            </p>
-        </div>
+        </p>
 
-        <div class="ps">
-            <p><b> P.S.</b> Si vous validez ce devis, merci de me le retourner signé et accompagné d'un acompte de 50%.</p>
-        </div>
+        {{-- <p>
+            <strong>Fonctionnalités :</strong>
+            @foreach ($order->features as $feature)
+                <span class="badge badge-primary">{{ $feature->name }}</span>
+            @endforeach
+        </p> --}}
+        <p>
+            <strong>Prix :</strong> {{ $order->total_amount }} XAF
+        </p>
+
+        <hr>
+
+        <h2>Tableau de prix :</h2>
 
         <table class="table-bordered">
             <thead>
