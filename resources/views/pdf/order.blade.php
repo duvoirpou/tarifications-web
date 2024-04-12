@@ -110,12 +110,13 @@
 
         </p>
 
-        {{-- <p>
+        <p>
             <strong>Fonctionnalités :</strong>
             @foreach ($functionalities as $feature)
-                <span class="badge badge-primary">{{ $feature->functionality->name }}</span>
+                <span
+                    style="background-color: #007bff; color: #fff; padding: 5px 10px; border-radius: 5px;">{{ $feature->functionality->name }}</span>
             @endforeach
-        </p> --}}
+        </p>
         <p>
             <strong>Prix :</strong> {{ $order->total_amount }} XAF
         </p>
@@ -134,26 +135,23 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>[Catégorie du projet]</td>
-                    <td>[Type de projet]</td>
-                    <td>[Fonctionnalité 1]</td>
-                    <td>[Prix de la fonctionnalité 1]</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>[Fonctionnalité 2]</td>
-                    <td>[Prix de la fonctionnalité 2]</td>
-                </tr>
+                @foreach ($functionalities as $feature)
+                    <tr>
+                        <td>{{ $feature->order->type->category->name }}</td>
+                        <td>{{ $feature->order->type->name }}</td>
+                        <td>{{ $feature->functionality->name }}</td>
+                        <td>{{ $feature->price }} XAF</td>
+                    </tr>
+                @endforeach
             </tbody>
             <tfoot>
                 <tr>
                     <th colspan="3" class="total">Total</th>
-                    <td class="total">[Prix total du projet]</td>
+                    <td class="total">{{ $order->total_amount }} XAF</td>
                 </tr>
             </tfoot>
         </table>
+
 
         <div class="footer">
             <p class="text-center">Fait le : <?= date('d/m/Y') ?> à <?= date('H:i:s') ?> à Brazzaville
