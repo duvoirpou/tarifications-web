@@ -28,7 +28,7 @@
                             </div>
                             @livewire('create-project')
                             <!-- Personal Details -->
-                            <div id="personalDetails" class="row contact-box" wire:ignore.self>
+                            <div id="personalDetails" class="row contact-box">
                                 <div class="contact-box-header">
                                     <h3>Détails du client</h3>
                                     <p>Veuillez donner un e-mail VALIDE pour vérifier le résultat.</p>
