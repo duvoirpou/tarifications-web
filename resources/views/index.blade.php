@@ -89,7 +89,7 @@
                                                 @endif
                                             </li>
                                         </ul> --}}
-                                        <div class="price-element" hidden></div>
+                                        {{-- <div class="price-element" hidden></div> --}}
                                         <div class="row total-container">
                                             <div class="col-6 p-0">
                                                 <h6> Total :</h6>
@@ -155,6 +155,9 @@
                                 // Récupérer toutes les cases à cocher
                                 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
+                                // Vérifier si au moins une case est cochée
+                                const isAnyChecked = [...checkboxes].some((checkbox) => checkbox.checked);
+
                                 // Faire la somme des valeurs des cases à cocher sélectionnées
                                 const totalValue = [...checkboxes].reduce((acc, checkbox) => {
                                     if (checkbox.checked) {
@@ -168,13 +171,18 @@
                                 }, 0);
 
                                 // Mettre à jour le prix
-                                const priceElement = document.querySelector('.price-element');
-                                priceElement.innerHTML = totalValue;
+                                /* const priceElement = document.querySelector('.price-element');
+                                priceElement.innerHTML = totalValue; */
 
                                 // Mettre à jour le prix total
                                 const totalPriceValue = document.querySelector('#totalPriceValue');
+                                const type = document.querySelector('#type');
+                                if (isAnyChecked) {
+                                    totalPriceValue.innerHTML = (typePrice + totalValue).toLocaleString();
+                                } else {
+                                    totalPriceValue.innerHTML = (0).toLocaleString();
+                                }
                                 const totalPriceInputValue = document.querySelector('#totalPriceInputValue');
-                                totalPriceValue.innerHTML = (typePrice + totalValue).toLocaleString();
                                 totalPriceInputValue.value = typePrice + totalValue;
 
                             }
