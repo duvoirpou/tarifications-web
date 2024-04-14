@@ -76,7 +76,7 @@
                             <div id="orderContainer" class="theiaStickySidebar">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h3>Récapitulatif</h3>
+                                        {{-- <h3>Récapitulatif</h3>
                                         <ul id="orderSumList">
                                             <li>
                                                 @if (isset($get_categorie->name) and $categorie_id)
@@ -88,7 +88,7 @@
                                                     <h6>{{ $get_type->name }}</h6>
                                                 @endif
                                             </li>
-                                        </ul>
+                                        </ul> --}}
                                         <div class="price-element" hidden></div>
                                         <div class="row total-container">
                                             <div class="col-6 p-0">
