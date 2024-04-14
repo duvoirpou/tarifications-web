@@ -39,7 +39,7 @@
             <div wire:loading.delay.remove>
                 <select wire:model.live="type_id" id="type" class="wide nice-select" name="type_id">
                     <option value="0.00">-- Choisir un type --</option>
-                    @if ($categorie_id)
+                    @if (!is_null($categorie_id))
                         @foreach ($types as $type)
                             <option value="{{ $type->id }}">{{ $type->name }}</option>
                         @endforeach
@@ -49,7 +49,7 @@
         </div>
     </div>
 
-    @if ($type_id)
+    @if (!is_null($type_id) AND $types)
         @foreach ($types_functionalities as $item)
             <div id="extraOptionGroup1" class="row option-box">
                 <div class="price-box"><sup></sup>{{ $item->functionality->ranking->coefficient }}</div>
@@ -83,5 +83,5 @@
         @endforeach
     @endif
     <!-- Calculator Area End -->
-    
+
 </div>
