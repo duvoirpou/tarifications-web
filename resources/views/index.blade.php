@@ -176,7 +176,14 @@
 
                                 // Mettre à jour le prix total
                                 const totalPriceValue = document.querySelector('#totalPriceValue');
-                                const type = document.querySelector('#type');
+
+                                const typeSelect = document.getElementById('type');
+                                const typeValue = typeSelect.options[typeSelect.selectedIndex].value;
+
+                                /* if (typeValue !== '0.00') {
+                                    totalPriceValue.innerHTML = (0).toLocaleString();
+                                } */
+
                                 if (isAnyChecked) {
                                     totalPriceValue.innerHTML = (typePrice + totalValue).toLocaleString();
                                 } else {
