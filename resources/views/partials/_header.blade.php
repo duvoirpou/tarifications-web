@@ -15,15 +15,16 @@
                 </div> --}}
             </div>
             <div class="col-lg-9 col-6">
-                {{-- <ul id="menuIcons">
+                <ul id="menuIcons">
                     <li><a href="#"><i class="icon icon-support"></i></a></li>
                     <li><a href="#"><i class="icon icon-shopping-cart2"></i></a></li>
-                </ul> --}}
+                </ul>
                 <!-- Menu -->
-                {{-- <nav id="menu" class="main-menu">
+                <nav id="menu" class="main-menu">
                     <ul>
-                        <li><span><a href="index.html">Home</a></span></li>
-                        <li>
+                        <li><span><a href="/">Accueil</a></span></li>
+                        <li><span><a href="/tarifications">Tarifications</a></span></li>
+                        {{-- <li>
                             <span><a href="#">Calculators <i class="fa fa-chevron-down"></i></a></span>
                             <ul>
                                 <li><a href="calculator-1.html">Demo 1 - More dropdowns</a></li>
@@ -46,11 +47,11 @@
                                 </li>
                                 <li><a href="javascript:;" id="openSimpleMailSummaryImage">Simple Mail Summary</a></li>
                             </ul>
-                        </li>
-                        <li><span><a href="faq.html">Faq</a></span></li>
-                        <li><span><a href="contacts.html">Contacts</a></span></li>
+                        </li> --}}
+                        {{-- <li><span><a href="faq.html">Faq</a></span></li> --}}
+                        <li><span><a href="{{ route('contact') }}">Contacts</a></span></li>
                     </ul>
-                </nav> --}}
+                </nav>
                 <!-- Menu End -->
             </div>
         </div>

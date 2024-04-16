@@ -10,6 +10,8 @@ Route::get('/welcome', function () {
 });
 
 Route::get("/", [ClientController::class, "index"])->name("home");
+Route::get("/tarifications", [ClientController::class, "tarifications"])->name("tarifications");
+Route::get("/contact", [ClientController::class, "contact"])->name("contact");
 Route::resource('order', OrderController::class);
 
 Route::get("/mail", [MailController::class, "index"])->name("home");
