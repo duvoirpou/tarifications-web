@@ -19,6 +19,7 @@
 
     <!-- Vendor CSS -->
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/bootstrap/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/animate/css/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/dmenu/css/menu.css') }}" rel="stylesheet">
     <link href="{{ asset('vendor/hamburgers/css/hamburgers.min.css') }}" rel="stylesheet">
@@ -40,7 +41,7 @@
     </div>
     <!-- Preloader End -->
     <!-- Page -->
-	<div id="page">
+    <div id="page">
         <!-- Header -->
         @include('partials._header')
         <!-- Header end -->
@@ -53,29 +54,41 @@
         @include('partials._footer')
         <!-- Footer end -->
     </div>
-	<!-- Page End -->
+    <!-- Page End -->
 
-	<!-- Back to top button -->
-	<div id="toTop"><i class="fa fa-chevron-up"></i></div>
+    <!-- Back to top button -->
+    <div id="toTop"><i class="fa fa-chevron-up"></i></div>
 
     @livewireScripts
 
     <!-- Vendor Javascript Files -->
-	<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-	<script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-	<script src="{{ asset('vendor/easing/js/easing.min.js') }}"></script>
-	<script src="{{ asset('vendor/parsley/js/parsley.min.js') }}"></script>
-	<script src="{{ asset('vendor/nice-select/js/jquery.nice-select.min.js') }}"></script>
-	<script src="{{ asset('vendor/range-slider/js/ion.rangeSlider.min.js') }}"></script>
-	<script src="{{ asset('vendor/price-format/js/jquery.priceformat.min.js') }}"></script>
-	<script src="{{ asset('vendor/theia-sticky-sidebar/js/ResizeSensor.min.js') }}"></script>
-	<script src="{{ asset('vendor/theia-sticky-sidebar/js/theia-sticky-sidebar.min.js') }}"></script>
-	<script src="{{ asset('vendor/mmenu/js/mmenu.min.js') }}"></script>
-	<script src="{{ asset('vendor/magnific-popup/js/jquery.magnific-popup.min.js') }}"></script>
-	<script src="{{ asset('vendor/float-labels/js/float-labels.min.js') }}"></script>
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('vendor/easing/js/easing.min.js') }}"></script>
+    <script src="{{ asset('vendor/parsley/js/parsley.min.js') }}"></script>
+    <script src="{{ asset('vendor/nice-select/js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('vendor/range-slider/js/ion.rangeSlider.min.js') }}"></script>
+    <script src="{{ asset('vendor/price-format/js/jquery.priceformat.min.js') }}"></script>
+    <script src="{{ asset('vendor/theia-sticky-sidebar/js/ResizeSensor.min.js') }}"></script>
+    <script src="{{ asset('vendor/theia-sticky-sidebar/js/theia-sticky-sidebar.min.js') }}"></script>
+    <script src="{{ asset('vendor/mmenu/js/mmenu.min.js') }}"></script>
+    <script src="{{ asset('vendor/magnific-popup/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('vendor/float-labels/js/float-labels.min.js') }}"></script>
 
-	<!-- Main Javascript File -->
-	<script src="{{ asset('js/scripts.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="{{ asset('vendor/bootstrap/js/dataTables.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/dataTables.bootstrap4.js') }}"></script>
+
+    <!-- Main Javascript File -->
+    <script src="{{ asset('js/scripts.js') }}"></script>
+
+    <script>
+        new DataTable('#example', {
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/fr-FR.json'
+            }
+        });
+    </script>
 </body>
 
 </html>
