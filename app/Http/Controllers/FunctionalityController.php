@@ -13,7 +13,6 @@ class FunctionalityController extends Controller
         $rankings = Ranking::all();
         $functionalities = Functionality::all();
         return view('admin.functionalities.index', compact('functionalities', 'rankings'));
-        //return view('index', compact('datas'));
     }
     public function create() {
         return view('');
