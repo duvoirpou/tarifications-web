@@ -17,17 +17,31 @@
                                 <div class="option-box-header">
                                     <h3>Types de projets</h3>
                                     <p>
-                                        <span class="text-danger">*</span>
-                                        <span class="text-danger">
-                                            <strong>
-                                                {{ $errors->first('category') }}
-                                            </strong>
-                                        </span>
+
+                                        @if (session()->has('success'))
+                                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <strong>{{ session()->get('success') }}</strong>
+                                            </div>
+                                        @endif
+
+
+                                        <script>
+                                            $(".alert").alert();
+                                        </script>
                                     </p>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <label for="name">Nouveau type</label>
-                                    <input id="name" class="form-control" name="name" type="text" required />
+                                    <input id="name" class="form-control" name="name" type="text" value="{{ old('name') }}" />
+                                    @error('name')
+                                        <span class="text-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
