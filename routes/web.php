@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\FunctionalityController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TypeController;
@@ -26,3 +27,6 @@ Route::resource('category', CategoryController::class);
 
 Route::get("/admin/types", [TypeController::class, "index"])->name("admin.types");
 Route::resource('type', TypeController::class);
+
+Route::get("/admin/functionalities", [FunctionalityController::class, "index"])->name("admin.functionalities");
+Route::resource('functionality', FunctionalityController::class);
