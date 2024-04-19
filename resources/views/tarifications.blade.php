@@ -228,7 +228,7 @@
 
             boutonSoumettre.innerHTML = 'Veuillez patienter...';
 
-            // Simulons une attente de 5 secondes pour la démonstration
+            // Simulons une attente de quelques secondes pour la démonstration
             setTimeout(function() {
                 // Réactivez le bouton de soumission
                 boutonSoumettre.disabled = false;
@@ -236,10 +236,13 @@
                 // Marquez que la soumission est terminée
                 estEnCoursDeSoumission = false;
 
+                // Mettez à jour le texte du bouton de soumission
+                boutonSoumettre.innerHTML = 'SOUMETTRE';
+
                 // Réinitialisez le formulaire ou redirigez l'utilisateur, selon votre besoin
                 // formulaire.reset(); // Réinitialisation du formulaire
 
-            }, 60000); // Attendez 60 secondes (à remplacer par votre traitement réel)
+            }, 30000); // Attendez 30 secondes (à remplacer par votre traitement réel)
         });
     </script>
 @endsection
