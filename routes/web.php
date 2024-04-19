@@ -6,6 +6,7 @@ use App\Http\Controllers\FunctionalityController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TypeController;
+use App\Http\Controllers\TypesFunctionalityController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/welcome', function () {
@@ -30,3 +31,6 @@ Route::resource('type', TypeController::class);
 
 Route::get("/admin/functionalities", [FunctionalityController::class, "index"])->name("admin.functionalities");
 Route::resource('functionality', FunctionalityController::class);
+
+Route::get("/admin/types-functionalities", [TypesFunctionalityController::class, "index"])->name("admin.types-functionalities");
+Route::resource('type-functionality', TypesFunctionalityController::class);
