@@ -73,7 +73,7 @@
 
             <p style="margin-top: 10px">
                 Je m'appelle Précieux Assako et je suis développeur web. Je vous remercie de l'intérêt que vous portez
-                pour mes services et pour votre projet <b> [Nom du projet]</b>.
+                pour mes services et pour votre projet <b> {{ $order->project_name }}</b>.
             </p>
             <p style="margin-top: 10px">
                 Je vous adresse ci-joint le devis pour la réalisation de ce projet. Il détaille les différentes
