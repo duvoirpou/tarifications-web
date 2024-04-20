@@ -205,50 +205,11 @@
     <!-- Main End -->
 
     <script>
-        /* // Récupérez le formulaire et le bouton de soumission
-            var formulaire = document.getElementById('orderForm');
-            var boutonSoumettre = document.getElementById('submitBtn');
-            var estEnCoursDeSoumission = false;
-
-            // Ajoutez un gestionnaire d'événements pour l'événement de soumission du formulaire
-            formulaire.addEventListener('submit', function(event) {
-                // Empêchez la soumission par défaut du formulaire
-                //event.preventDefault();
-
-                // Vérifiez si une soumission est déjà en cours
-                if (estEnCoursDeSoumission) {
-                    return;
-                }
-
-                // Désactivez le bouton de soumission
-                boutonSoumettre.disabled = true;
-
-                // Marquez que la soumission est en cours
-                estEnCoursDeSoumission = true;
-
-                boutonSoumettre.innerHTML = 'Veuillez patienter...';
-
-                // Simulons une attente de quelques secondes pour la démonstration
-                setTimeout(function() {
-                    // Réactivez le bouton de soumission
-                    boutonSoumettre.disabled = false;
-
-                    // Marquez que la soumission est terminée
-                    estEnCoursDeSoumission = false;
-
-                    // Mettez à jour le texte du bouton de soumission
-                    boutonSoumettre.innerHTML = 'SOUMETTRE';
-
-                    // Réinitialisez le formulaire ou redirigez l'utilisateur, selon votre besoin
-                    // formulaire.reset(); // Réinitialisation du formulaire
-
-                }, 30000); // Attendez 30 secondes (à remplacer par votre traitement réel)
-            }); */
-
         // Récupérez le formulaire et le bouton de soumission
         var formulaire = document.getElementById('orderForm');
         var boutonSoumettre = document.getElementById('submitBtn');
         var estEnCoursDeSoumission = false;
+        var tempsRestant = 30; // Temps de décompte en secondes
 
         // Ajoutez un gestionnaire d'événements pour l'événement de soumission du formulaire
         formulaire.addEventListener('submit', function(event) {
@@ -283,7 +244,17 @@
             // Marquez que la soumission est en cours
             estEnCoursDeSoumission = true;
 
-            boutonSoumettre.innerHTML = 'Veuillez patienter...';
+            // Démarrez le décompte
+            var intervalle = setInterval(function() {
+                tempsRestant--;
+                boutonSoumettre.innerHTML = 'Veuillez patienter... (' + tempsRestant + ')';
+
+                if (tempsRestant <= 0) {
+                    clearInterval(intervalle);
+                    boutonSoumettre.innerHTML = 'SOUMETTRE';
+                    estEnCoursDeSoumission = false;
+                }
+            }, 1000);
 
             // Simulons une attente de quelques secondes pour la démonstration
             setTimeout(function() {
@@ -299,7 +270,7 @@
                 // Réinitialisez le formulaire ou redirigez l'utilisateur, selon votre besoin
                 // formulaire.reset(); // Réinitialisation du formulaire
 
-            }, 30000); // Attendez 30 secondes (à remplacer par votre traitement réel)
+            }, tempsRestant * 1000); // Attendez le temps restant (en millisecondes)
         });
     </script>
 @endsection
