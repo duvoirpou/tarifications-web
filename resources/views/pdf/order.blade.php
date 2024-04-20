@@ -110,7 +110,6 @@
             @endif
 
         </p>
-
         <p>
             <strong>Fonctionnalités :</strong>
             @foreach ($functionalities as $feature)
