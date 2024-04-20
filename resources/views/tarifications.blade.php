@@ -51,14 +51,14 @@
                                     <div class="form-group">
                                         <label for="customer_phone">Téléphone</label>
                                         <input id="customer_phone" class="form-control" name="customer_phone" type="text"
-                                            data-parsley-pattern="^\+{1}[0-9]+$" />
+                                            data-parsley-pattern="^\+{1}[0-9]+$" required />
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label for="customer_address">Adresse</label>
                                         <input id="customer_address" class="form-control" name="customer_address"
-                                            type="text" data-parsley-pattern="^[,.a-zA-Z0-9\s.]+$" />
+                                            type="text" data-parsley-pattern="^[,.a-zA-Z0-9\s.]+$" required />
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -205,6 +205,46 @@
     <!-- Main End -->
 
     <script>
+        /* // Récupérez le formulaire et le bouton de soumission
+            var formulaire = document.getElementById('orderForm');
+            var boutonSoumettre = document.getElementById('submitBtn');
+            var estEnCoursDeSoumission = false;
+
+            // Ajoutez un gestionnaire d'événements pour l'événement de soumission du formulaire
+            formulaire.addEventListener('submit', function(event) {
+                // Empêchez la soumission par défaut du formulaire
+                //event.preventDefault();
+
+                // Vérifiez si une soumission est déjà en cours
+                if (estEnCoursDeSoumission) {
+                    return;
+                }
+
+                // Désactivez le bouton de soumission
+                boutonSoumettre.disabled = true;
+
+                // Marquez que la soumission est en cours
+                estEnCoursDeSoumission = true;
+
+                boutonSoumettre.innerHTML = 'Veuillez patienter...';
+
+                // Simulons une attente de quelques secondes pour la démonstration
+                setTimeout(function() {
+                    // Réactivez le bouton de soumission
+                    boutonSoumettre.disabled = false;
+
+                    // Marquez que la soumission est terminée
+                    estEnCoursDeSoumission = false;
+
+                    // Mettez à jour le texte du bouton de soumission
+                    boutonSoumettre.innerHTML = 'SOUMETTRE';
+
+                    // Réinitialisez le formulaire ou redirigez l'utilisateur, selon votre besoin
+                    // formulaire.reset(); // Réinitialisation du formulaire
+
+                }, 30000); // Attendez 30 secondes (à remplacer par votre traitement réel)
+            }); */
+
         // Récupérez le formulaire et le bouton de soumission
         var formulaire = document.getElementById('orderForm');
         var boutonSoumettre = document.getElementById('submitBtn');
@@ -212,6 +252,23 @@
 
         // Ajoutez un gestionnaire d'événements pour l'événement de soumission du formulaire
         formulaire.addEventListener('submit', function(event) {
+            // Vérifiez si les champs requis sont vides
+            var champsRequis = document.querySelectorAll('input[required]');
+            var sontTousRemplis = true;
+            for (var i = 0; i < champsRequis.length; i++) {
+                if (champsRequis[i].value === '') {
+                    sontTousRemplis = false;
+                    break;
+                }
+            }
+
+            // Si les champs requis sont vides, empêchez la soumission
+            if (!sontTousRemplis) {
+                event.preventDefault();
+                alert('Veuillez remplir tous les champs requis.');
+                return;
+            }
+
             // Empêchez la soumission par défaut du formulaire
             //event.preventDefault();
 

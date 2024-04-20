@@ -27,7 +27,7 @@
 
         <div class="col-md-6 col-sm-6" wire:ignore>
             <select wire:model.live="categorie_id" wire:loading.attr='disabled' class="wide nice-select" id="categorie"
-                name="categorie_id">
+                name="categorie_id" required>
                 <option value="">-- Choisir une catégorie --</option>
                 @foreach ($categories as $categorie)
                     <option value="{{ $categorie->id }}">{{ $categorie->name }}</option>
@@ -37,8 +37,8 @@
         <div class="col-md-6 col-sm-6">
             <div class="" wire:loading.delay><b>Chargement...</b></div>
             <div wire:loading.delay.remove>
-                <select wire:model.live="type_id" id="type" class="wide nice-select" name="type_id">
-                    <option value="0.00">-- Choisir un type --</option>
+                <select wire:model.live="type_id" id="type" class="wide nice-select" name="type_id" required>
+                    <option value="">-- Choisir un type --</option>
                     @if (!is_null($categorie_id))
                         @foreach ($types as $type)
                             <option value="{{ $type->id }}">{{ $type->name }}</option>
