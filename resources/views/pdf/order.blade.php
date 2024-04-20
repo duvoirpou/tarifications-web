@@ -59,7 +59,7 @@
         }
 
         .table-bordered {
-            background-color: #adb5bd;
+            background-color: #bac4d0;
             border: none;
         }
     </style>
@@ -115,7 +115,7 @@
             <strong>Fonctionnalités :</strong>
             @foreach ($functionalities as $feature)
                 <span
-                    style="background-color: #adb5bd; color: #000; padding: 5px 10px; border-radius: 5px;">{{ $feature->functionality->name }}</span>
+                    style="background-color: #bac4d0; color: #000; padding: 5px 10px; border-radius: 5px;">{{ $feature->functionality->name }}</span>
             @endforeach
         </p>
         <p>
