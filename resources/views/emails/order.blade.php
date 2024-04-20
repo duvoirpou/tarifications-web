@@ -57,12 +57,6 @@
         .text-right {
             text-align: right;
         }
-
-        .table-bordered {
-            background-color: #adb5bd;
-        }
-
-
     </style>
 </head>
 
