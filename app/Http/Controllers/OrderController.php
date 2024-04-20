@@ -98,8 +98,9 @@ class OrderController extends Controller
                     "functionalities" => $functionalities
                 ])->setPaper('a4', 'landscape');
                 $message->to($email)
-                        ->subject('Confirmation de la commande de votre projet web')
-                        ->attachData($pdf->output(), "commande-$order->project_name.pdf");
+                    ->cc('assakoprecieux@gmail.com')
+                    ->subject('Confirmation de la commande de votre projet web')
+                    ->attachData($pdf->output(), "commande-$order->project_name.pdf");
             });
 
             return $pdf->download("commande-$order->project_name.pdf");
