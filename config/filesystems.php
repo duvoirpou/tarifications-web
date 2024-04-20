@@ -44,6 +44,13 @@ return [
             'throw' => false,
         ],
 
+        /* 'public' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public'), // Stocke les fichiers uploadés dans le dossier public
+            'url' => env('APP_URL').'/tarifications-web/storage/app/public', // Lis le fichier
+            'visibility' => 'public',
+        ], */
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
