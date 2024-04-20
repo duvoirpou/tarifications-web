@@ -21,9 +21,11 @@
                                     </p>
                                 </div>
                                 <div class="col-md-12 col-sm-12">
-                                    <label for="project_name">Nom du projet</label>
-                                    <input id="project_name" class="form-control" name="project_name" type="text"
-                                        required />
+                                    <div class="form-group">
+                                        <label for="project_name">Nom du projet</label>
+                                        <input id="project_name" class="form-control" name="project_name" type="text"
+                                            required />
+                                    </div>
                                 </div>
                             </div>
                             @livewire('create-project')

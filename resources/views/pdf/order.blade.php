@@ -60,6 +60,7 @@
 
         .table-bordered {
             background-color: #adb5bd;
+            border: none;
         }
     </style>
 </head>
@@ -114,11 +115,11 @@
             <strong>Fonctionnalités :</strong>
             @foreach ($functionalities as $feature)
                 <span
-                    style="background-color: #007bff; color: #fff; padding: 5px 10px; border-radius: 5px;">{{ $feature->functionality->name }}</span>
+                    style="background-color: #adb5bd; color: #000; padding: 5px 10px; border-radius: 5px;">{{ $feature->functionality->name }}</span>
             @endforeach
         </p>
         <p>
-            <strong>Prix :</strong> {{ $order->total_amount }} XAF
+            <strong>Coût total :</strong> {{ number_format($order->total_amount, 0, ',', '.') }} XAF
         </p>
 
         <hr>
@@ -136,25 +137,42 @@
             </thead>
             <tbody>
                 @foreach ($functionalities as $feature)
-                    <tr>
-                        <td>{{ $feature->order->type->category->name }}</td>
-                        <td>{{ $feature->order->type->name }}</td>
-                        <td>{{ $feature->functionality->name }}</td>
-                        <td>{{ $feature->price }} XAF</td>
-                    </tr>
+                    @if (
+                        $loop->first ||
+                            $feature->order->type->category->name != $functionalities[$loop->index - 1]->order->type->category->name ||
+                            $feature->order->type->name != $functionalities[$loop->index - 1]->order->type->name)
+                        <tr>
+                            <td>{{ $feature->order->type->category->name }}</td>
+                            <td>{{ $feature->order->type->name }}</td>
+                            <td>{{ $feature->functionality->name }}</td>
+                            <td>{{ number_format($feature->order->type->price * $feature->functionality->ranking->coefficient, 0, ',', '.') }}
+                                XAF</td>
+                        </tr>
+                    @else
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>{{ $feature->functionality->name }}</td>
+                            <td>{{ number_format($feature->order->type->price * $feature->functionality->ranking->coefficient, 0, ',', '.') }}
+                                XAF</td>
+                        </tr>
+                    @endif
                 @endforeach
             </tbody>
             <tfoot>
                 <tr>
-                    <th colspan="3" class="total">Total</th>
-                    <td class="total">{{ $order->total_amount }} XAF</td>
+                    <th colspan="3" class="total">Prix de base</th>
+                    <td class="total">{{ number_format($order->type->price, 0, ',', '.') }} XAF</td>
+                </tr>
+                <tr>
+                    <th colspan="3" class="total">Coût total</th>
+                    <td class="total">{{ number_format($order->total_amount, 0, ',', '.') }} XAF</td>
                 </tr>
             </tfoot>
         </table>
 
-
         <div class="footer">
-            <p class="text-center">Fait le : <?= date('d/m/Y') ?> à <?= date('H:i:s') ?> à Brazzaville
+            <p class="text-center">Fait le : <?= date('d/m/Y') ?> à <?= date('H:i:s') ?> </p>
             <p class="text-right">Signature : _______________________</p>
             <p class="text-center">
                 <a href="https://www.tala.cg">www.tala.cg</a>
