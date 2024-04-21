@@ -66,7 +66,7 @@
                                 <div class="col-md-12 col-sm-12 mt-4">
                                     <div class="form-group">
                                         <label for="inputMessage">Description</label>
-                                        <textarea class="form-control" id="inputMessage" name="description" value="{{ old('description') }}" data-parsley-pattern="^[a-zA-Z0-9\s.:,!?']+$"></textarea>
+                                        <textarea class="form-control" id="inputMessage" name="description" value="{{ old('description') }}"></textarea>
                                         @error('description')
                                             <span class="text-danger">
                                                 <strong>{{ $message }}</strong>

@@ -58,7 +58,7 @@
                                             <option value="">-- Choisir une fonctionnalité --</option>
                                             @foreach ($functionalities as $functionalitiy)
                                                 <option value="{{ $functionalitiy->id }}">
-                                                    {{ $functionalitiy->name }}
+                                                    {{ $functionalitiy->name }} ({{ $functionalitiy->description }})
                                                 </option>
                                             @endforeach
                                         </select>

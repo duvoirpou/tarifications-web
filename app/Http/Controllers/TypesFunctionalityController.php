@@ -12,7 +12,7 @@ class TypesFunctionalityController extends Controller
     public function index()
     {
         $types = Type::all();
-        $functionalities = Functionality::all();
+        $functionalities = Functionality::orderBy( 'name', 'asc' )->get();
         $types_functionalities = TypesFunctionality::with(["functionality","type"])->get();
         return view('admin.types-funtionalities.index', compact('types','functionalities', 'types_functionalities'));
     }
