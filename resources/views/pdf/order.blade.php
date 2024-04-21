@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devis - {{ $order->project_name }}</title>
+    <title>Devis- {{ $order->project_name }}</title>
 
     <style>
         body {
@@ -15,6 +15,11 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
         }
 
         h1,
@@ -58,129 +63,208 @@
             text-align: right;
         }
 
-        .table-bordered {
-            background-color: #bac4d0;
-            border: none;
+        .emetteur {
+            background-color: #f2f2f2;
+            padding: 50px;
+            width: 35%;
+            float: left;
+            position: relative;
+        }
+
+        .client {
+            background-color: #fff;
+            padding: 50px;
+            width: 35%;
+            border: #555 1px solid;
+            float: right;
+            position: relative;
+        }
+
+        .table-devis {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table-devis th,
+        .table-devis td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .table-devis th {
+            text-align: center;
+        }
+
+        .table-devis tfoot tr:last-child {
+            background-color: #f2f2f2;
+        }
+
+        .conditions-reglement {
+            margin-top: 30px;
+        }
+
+        .conditions-reglement h3 {
+            margin-bottom: 10px;
+        }
+
+        .conditions-reglement p {
+            margin-bottom: 5px;
+        }
+
+        .signature {
+            margin-top: 30px;
+            text-align: right;
+        }
+
+        .signature p {
+            margin-bottom: 5px;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="header">
-            <img src="{{ public_path('storage/images/Tala-1.png') }}" style="width: 200px;" alt="Logo de votre entreprise"
-                class="logo">
-            <h1>Devis pour {{ $order->project_name }}</h1>
-        </div>
-
-        <div class="client-info">
-            <h2>Client :</h2>
-            <p>
-                {{ $order->customer_name }}
-            </p>
-            <p>
-                {{ $order->customer_email }}
-            </p>
-            <p>
-                {{ $order->customer_phone }}
-            </p>
-            <p>
-                {{ $order->customer_address }}
-            </p>
-        </div>
-
-        @if ($order->additional_information)
-            <div class="message">
-                <h2>Message :</h2>
-                <p>{{ $order->additional_information }}</p>
+        <div class="content">
+            <div>
+                {{-- <img src="logo.png" alt="Logo" class="logo"> --}}
             </div>
-        @endif
+            <div class="text-right">
+                <h1>Devis {{ $order->project_name }}</h1>
+                <p>
+                    <span>Date de proposition : {{ $order->created_at->format('d/m/Y') }}</span>
+                </p>
+                <p>
+                    Date de fin de validité : {{ $order->created_at->addDays(30)->format('d/m/Y') }}
+                </p>
+            </div>
+        </div>
 
-        <hr>
+        {{-- <div class="content" style="margin-top: 30px">
+            <div class="emetteur">
+                <h2>Emetteur</h2>
+                <p>Nom de l'entreprise</p>
+                <p>Adresse</p>
+                <p>Téléphone</p>
+                <p>Email</p>
+            </div>
+            <div class="client">
+                <h2>Client</h2>
+                <p>{{ $order->customer_name }}</p>
+                <p>{{ $order->customer_address }}</p>
+                <p>{{ $order->customer_phone }}</p>
+                <p>{{ $order->customer_email }}</p>
+            </div>
+        </div> --}}
 
-        <h2>Récapitulatif :</h2>
-        <p>
-            <strong>Catégorie :</strong> {{ $order->type->category->name }}
-        </p>
+        <div style="display: inline-block; width: 100%; margin-top: 50px">
+            <div style="display: inline-block; width: 320px; background-color: #f2f2f2; padding: 25px;">
+                <h2>Émetteur</h2>
+                <p>Nom de l'entreprise</p>
+                <p>Adresse</p>
+                <p>Téléphone</p>
+                <p>Email</p>
+            </div>
+            <div style="display: inline-block; width: 320px; float: right; background-color: #fff; padding: 25px; border: #555 1px solid;">
+                <h2>Client</h2>
+                <p>{{ $order->customer_name }}</p>
+                <p>{{ $order->customer_address }}</p>
+                <p>{{ $order->customer_phone }}</p>
+                <p>{{ $order->customer_email }}</p>
+            </div>
+        </div>
 
-        <p>
-            <strong>Type :</strong> {{ $order->type->name }}
-            @if ($order->type->description)
-                <p>{{ $order->type->description }}</p>
-            @endif
+        <p style="text-align: center; margin-top: 50px">Voici ci dessous le détail des prestations proposées ainsi que leur tarification associée :</p>
 
-        </p>
-        <p>
-            <strong>Fonctionnalités :</strong>
-            @foreach ($functionalities as $feature)
-                <span
-                    style="background-color: #bac4d0; color: #000; padding: 5px 10px; border-radius: 5px;">{{ $feature->functionality->name }}</span>
-            @endforeach
-        </p>
-        <p>
-            <strong>Coût total :</strong> {{ number_format($order->total_amount, 0, ',', '.') }} XAF
-        </p>
+        <div style="margin-top: 50px">
+            <table class="table-devis">
+                <thead>
+                    <tr>
+                        <th>Désignation</th>
+                        <th>TVA</th>
+                        <th>P.U. HT</th>
+                        <th>Qté</th>
+                        <th>Total HT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @foreach ($functionalities as $feature)
+                                @if (
+                                    $loop->first ||
+                                        $feature->order->type->category->name != $functionalities[$loop->index - 1]->order->type->category->name ||
+                                        $feature->order->type->name != $functionalities[$loop->index - 1]->order->type->name)
+                                    <p>{{ $feature->order->type->category->name }}</p>
+                                    <p>{{ $feature->order->type->name }} ({{ number_format($feature->order->type->price, 0, ',', '.') }} XAF)</p>
+                                    {{-- <p style="text-align: justify">
+                                        {{ $feature->order->type->description }}
+                                    </p> --}}
+                                @endif
+                                <ul>
+                                    <li>{{ $feature->functionality->name }}
+                                        ({{ number_format($feature->order->type->price * $feature->functionality->ranking->coefficient, 0, ',', '.') }}
+                                        XAF)</li>
+                                </ul>
+                            @endforeach
+                        </td>
+                        <td>0%</td>
+                        <td>{{ number_format($order->total_amount, 0, ',', '.') }} XAF</td>
+                        <td>1</td>
+                        <td>{{ number_format($order->total_amount, 0, ',', '.') }} XAF</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">Total HT</td>
+                        <td>{{ number_format($order->total_amount, 0, ',', '.') }} XAF</td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">TVA</td>
+                        <td>0</td>
+                    </tr>
+                    <tr style="background-color: #f2f2f2">
+                        <td colspan="4">Total TTC</td>
+                        <td>{{ number_format($order->total_amount, 0, ',', '.') }} XAF</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
 
-        <p>
-            <strong>Un acompte de 50 % du coût total, soit {{ number_format($order->total_amount * 0.5, 0, ',', '.') }} XAF, est obligatoire pour le début des travaux du projet.</strong>
-        </p>
+        <div class="conditions-reglement">
+            <h3>Conditions de règlement</h3>
+            <p>
+                {{-- Un acompte de 50 % du coût total, soit {{ number_format($order->total_amount * 0.5, 0, ',', '.') }} XAF, est obligatoire pour le début des travaux du projet.
+                <br>
+                Le solde restant du sera payé à la livraison. --}}
+                50% à la signature, 25% à mi-parcours, 25% à la livraison du site web.
+            </p>
+            {{-- <p>Le délai de paiement est de 30 jours à réception de la facture.</p> --}}
+        </div>
 
-        <hr>
+        <div class="conditions-reglement">
+            <h3>Mode de règlement</h3>
+            <p>Espèce, mobile money ou virement bancaire</p>
+        </div>
 
-        <h2>Tableau de prix :</h2>
+        <div class="" style="margin-top: 30px">
+            <h3>Modalités de réponse</h3>
+            <p>Le client peut accepter ce devis en signant et en renvoyant une copie électronique ou papier par email ou par courrier.</p>
+        </div>
 
-        <table class="table-bordered">
-            <thead>
-                <tr>
-                    <th>Catégorie</th>
-                    <th>Type</th>
-                    <th>Fonctionnalité(s)</th>
-                    <th>Prix</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($functionalities as $feature)
-                    @if (
-                        $loop->first ||
-                            $feature->order->type->category->name != $functionalities[$loop->index - 1]->order->type->category->name ||
-                            $feature->order->type->name != $functionalities[$loop->index - 1]->order->type->name)
-                        <tr>
-                            <td>{{ $feature->order->type->category->name }}</td>
-                            <td>{{ $feature->order->type->name }}</td>
-                            <td>{{ $feature->functionality->name }}</td>
-                            <td>{{ number_format($feature->order->type->price * $feature->functionality->ranking->coefficient, 0, ',', '.') }}
-                                XAF</td>
-                        </tr>
-                    @else
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>{{ $feature->functionality->name }}</td>
-                            <td>{{ number_format($feature->order->type->price * $feature->functionality->ranking->coefficient, 0, ',', '.') }}
-                                XAF</td>
-                        </tr>
-                    @endif
-                @endforeach
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th colspan="3" class="total">Prix de base</th>
-                    <td class="total">{{ number_format($order->type->price, 0, ',', '.') }} XAF</td>
-                </tr>
-                <tr>
-                    <th colspan="3" class="total">Coût total</th>
-                    <td class="total">{{ number_format($order->total_amount, 0, ',', '.') }} XAF</td>
-                </tr>
-            </tfoot>
-        </table>
-
-        <div class="footer">
-            <p class="text-center">Fait le : <?= date('d/m/Y') ?> à <?= date('H:i:s') ?> </p>
-            <p class="text-right">Signature : _______________________</p>
-            <p class="text-center">
-                <a href="https://www.tala.cg">www.tala.cg</a>
+        <div class=""  style="margin-top: 30px">
+            <h3>Validité du devis :</h3>
+            <p>
+                Ce devis est valide jusqu'au {{ $order->created_at->addDays(30)->format('d/m/Y') }}. Les tarifs et les conditions peuvent être sujets à révision après cette date.
             </p>
         </div>
+
+        <div class="content signature" style="margin-bottom: 120px; text-decoration: underline">
+            {{-- <p>Signature de l'émetteur</p> --}}
+            <p>Signature du client</p>
+        </div>
+        <p class="text-center" style="margin-bottom: 100px">
+            <a href="https://www.tala.cg">www.tala.cg</a>
+        </p>
     </div>
 </body>
 

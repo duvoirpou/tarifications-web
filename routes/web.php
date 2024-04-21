@@ -10,7 +10,7 @@ use App\Http\Controllers\TypesFunctionalityController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/welcome', function () {
-    return view('welcome');
+    return view('emails.welcome');
 });
 
 Route::get("/", [ClientController::class, "index"])->name("home");
