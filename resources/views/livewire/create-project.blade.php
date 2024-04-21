@@ -53,11 +53,8 @@
         @foreach ($types_functionalities as $item)
             <div id="extraOptionGroup1" class="row option-box">
                 <div class="price-box"><sup></sup>{{ $item->functionality->ranking->coefficient }}</div>
-                <div class="option-box-header">
-                    <h3>{{ $item->functionality->name }}</h3>
-                    <p>{{ $item->functionality->description }}</p>
-                </div>
-                <div class="col-md-12 col-sm-12">
+
+                <div class="col-md-12 col-sm-12 mt-5">
                     <input type="checkbox" id="extraOption{{ $item->functionality->id }}" class="inp-cbx"
                         name="selected_functionalities_ids[]" value="{{ $item->functionality->id }}"
                         data-autre-valeur="{{ $item->functionality->ranking->coefficient }}"
@@ -69,7 +66,7 @@
                             </svg>
                         </span>
                         <span id="extraOption1Title">
-                            Option {{ $loop->iteration }}
+                            {{ $item->functionality->name }}{{--  {{ $loop->iteration }} --}}
                         </span>
                     </label>
                     {{-- <label class="cbx" for="">
@@ -78,6 +75,10 @@
                                 style="font-size: 1.5rem !important;" onchange="updatePrice(this.value)" />
                             <span id="extraOption1Title">Choisir</span>
                         </label> --}}
+                </div>
+                <div class="option-box-header">
+                    {{-- <h3>{{ $item->functionality->name }}</h3> --}}
+                    <p class="text-bold">{{ $item->functionality->description }}</p>
                 </div>
             </div>
         @endforeach

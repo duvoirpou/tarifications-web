@@ -140,7 +140,7 @@
                                 </div>
                                 <div class="row footer">
                                     <div class="col-lg-12 text-center">
-                                        <small>&copy; 2024 Tala.</small>
+                                        <small>&copy; 2024 Tala & Weegosoft.</small>
                                     </div>
                                 </div>
                             </div>
@@ -271,6 +271,7 @@
 
                 // Réinitialisez le formulaire ou redirigez l'utilisateur, selon votre besoin
                 // formulaire.reset(); // Réinitialisation du formulaire
+                window.location.href = '/tarifications'; // Redirection
 
             }, tempsRestant * 1000); // Attendez le temps restant (en millisecondes)
         });

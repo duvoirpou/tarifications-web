@@ -121,6 +121,10 @@
             <strong>Coût total :</strong> {{ number_format($order->total_amount, 0, ',', '.') }} XAF
         </p>
 
+        <p>
+            <strong>Un acompte de 50 % du coût total, soit {{ number_format($order->total_amount * 0.5, 0, ',', '.') }} XAF, est obligatoire pour le début des travaux du projet.</strong>
+        </p>
+
         <hr>
 
         <h2>Tableau de prix :</h2>
@@ -130,7 +134,7 @@
                 <tr>
                     <th>Catégorie</th>
                     <th>Type</th>
-                    <th>Fonctionnalité</th>
+                    <th>Fonctionnalité(s)</th>
                     <th>Prix</th>
                 </tr>
             </thead>
