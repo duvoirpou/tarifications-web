@@ -1,7 +1,7 @@
 <div>
     <!-- Calculator Area -->
     <div id="optionGroup1" class="row option-box">
-        <div class="ribbon-left"><span class="left">Populaires</span></div>
+        {{-- <div class="ribbon-left"><span class="left">Populaires</span></div> --}}
         <span class="price-box-desc">Prix</span>
         <div class="price-box w-25">
             <sup>XAF</sup>

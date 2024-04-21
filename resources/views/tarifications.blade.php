@@ -17,7 +17,7 @@
                                 <div class="option-box-header">
                                     <h3>Comment s'appelle votre projet ?</h3>
                                     <p>
-                                        Vous pouvez choisir un nom de projet qui sera visible par les autres utilisateurs.
+                                        Indiquez-nous le nom de votre projet.
                                     </p>
                                 </div>
                                 <div class="col-md-12 col-sm-12">
