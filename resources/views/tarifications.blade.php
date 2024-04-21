@@ -39,7 +39,7 @@
                                     <div class="form-group">
                                         <label for="customer_name">Nom complet</label>
                                         <input id="customer_name" class="form-control" name="customer_name" type="text"
-                                            data-parsley-pattern="^[a-zA-Z\s.]+$" required />
+                                             required />{{-- data-parsley-pattern="^[a-zA-Z\s.]+$" --}}
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
@@ -53,21 +53,21 @@
                                     <div class="form-group">
                                         <label for="customer_phone">Téléphone</label>
                                         <input id="customer_phone" class="form-control" name="customer_phone" type="text"
-                                            data-parsley-pattern="^\+{1}[0-9]+$" required />
+                                             required />{{-- data-parsley-pattern="^\+{1}[0-9]+$" --}}
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label for="customer_address">Adresse</label>
                                         <input id="customer_address" class="form-control" name="customer_address"
-                                            type="text" data-parsley-pattern="^[,.a-zA-Z0-9\s.]+$" required />
+                                            type="text"  required />{{-- data-parsley-pattern="^[,.a-zA-Z0-9\s.]+$" --}}
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="inputMessage">Message</label>
+                                        <label for="inputMessage">Informations additionnelles concernant le projet (facultatif)</label>
                                         <textarea class="form-control" id="inputMessage" name="additional_information"
-                                            data-parsley-pattern="^[a-zA-Z0-9\s.:,!?']+$"></textarea>
+                                            ></textarea>{{-- data-parsley-pattern="^[a-zA-Z0-9\s.:,!?']+$" --}}
                                     </div>
                                 </div>
                             </div>
