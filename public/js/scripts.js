@@ -70,7 +70,7 @@
 		navbar: {
 			title: 'MENU'
 		},
-		navbars: [{ position: 'bottom', content: ['<a href="#">© 2021 Costy</a>'] }]
+		navbars: [{ position: 'bottom', content: ['<a href="https://www.tala.cg">© 2024 Tala</a>'] }]
 	},
 		{
 			// configuration
