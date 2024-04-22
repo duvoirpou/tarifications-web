@@ -18,15 +18,16 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-8 mx-auto">
-                            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.
-                                Eiusmod tempor incididunt ut labore.</p>
+                            <p class="lead">
+
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="mt-5">
                     <div class="row">
                         <div class="col-lg-4">
-                            <a href="https://goo.gl/maps/vKgGyZe2JSRLDnYH6" target="_blank">
+                            <a href="#.">
                                 <div class="box text-center">
                                     <div class="icon d-flex align-items-end"><i class="icon icon-map-marker"></i></div>
                                     <h3 class="contact-title">Adresse</h3>
@@ -35,7 +36,7 @@
                             </a>
                         </div>
                         <div class="col-lg-4">
-                            <a href="mailto:info@yourdomain.com">
+                            <a href="mailto:contact@tala.cg">
                                 <div class="box text-center">
                                     <div class="icon d-flex align-items-end"><i class="icon icon-email"></i></div>
                                     <h3 class="contact-title">Email</h3>
@@ -44,11 +45,11 @@
                             </a>
                         </div>
                         <div class="col-lg-4">
-                            <a href="tel:+242069897169">
+                            <a href="tel:+242065014865">
                                 <div class="box text-center">
                                     <div class="icon d-flex align-items-end"><i class="icon icon-phone-handset"></i></div>
                                     <h3 class="contact-title">Téléphone</h3>
-                                    <p>+242069897169</p>
+                                    <p>+242 06 501 48 65</p>
                                 </div>
                             </a>
                         </div>

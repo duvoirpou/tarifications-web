@@ -25,7 +25,7 @@
                     <li><i class="icon icon-map-marker"></i><a href="#." class="footer-link">Adresse : Brazzaville, Congo</a>
                     </li>
                     <li><i class="icon icon-envelope3"></i><a href="mailto:contact@tala.cg" class="footer-link">Mail : contact@tala.cg</a></li>
-                    <li><i class="icon icon-phone2"></i><a href="tel:+242069897169" class="footer-link">Téléphone : +242069897169</a></li>
+                    <li><i class="icon icon-phone2"></i><a href="tel:+242065014865" class="footer-link">Téléphone : +242 06 501 48 65</a></li>
                 </ul>
             </div>
             <div class="col-md-2">
