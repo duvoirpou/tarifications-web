@@ -82,7 +82,7 @@ class OrderController extends Controller
                 "order_details" => $order_details,
                 "functionalities" => $functionalities
 
-            ])->setPaper('a4', 'landscape');
+            ])->setPaper('a3', 'landscape');
 
             // Envoyer un courriel de confirmation au client avec la facture en pièce jointe
             Mail::send('emails.order', [
