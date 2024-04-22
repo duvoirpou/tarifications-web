@@ -126,56 +126,40 @@
     <div class="container">
         <div class="content">
             <div>
-                {{-- <img src="logo.png" alt="Logo" class="logo"> --}}
+                <img src="{{ public_path('storage/images/Tala-1.png') }}" style="width: 100px; float: left;" alt="Logo"
+                class="logo">
             </div>
             <div class="text-right">
-                <h1>Devis {{ $order->project_name }}</h1>
-                <p>
+                <h1 style="margin-bottom: -10px;">Devis {{ $order->project_name }}</h1>
+                <p style="margin-bottom: -10px;">
                     <span>Date de proposition : {{ $order->created_at->format('d/m/Y') }}</span>
                 </p>
-                <p>
+                <p style="margin-bottom: 30px;">
                     Date de fin de validité : {{ $order->created_at->addDays(30)->format('d/m/Y') }}
                 </p>
             </div>
         </div>
 
-        {{-- <div class="content" style="margin-top: 30px">
-            <div class="emetteur">
-                <h2>Emetteur</h2>
-                <p>Nom de l'entreprise</p>
-                <p>Adresse</p>
-                <p>Téléphone</p>
-                <p>Email</p>
+        <div style="display: inline-block; width: 100%; text-align: center; margin-top: 50px">
+            <div style="display: inline-block; width: 320px; background-color: #f2f2f2; padding: 15px; margin: 0 10px 0 0;">
+                <h2 style="font-size: 16px;">Prestataire</h2>
+                <p style="margin-bottom: -10px;">Précieux Assako</p>
+                <p style="margin-bottom: -10px;">130 rue lekana, Moungali, Brazzaville</p>
+                <p style="margin-bottom: -10px;">+242 06 989 71 69</p>
+                <p>assakoprecieux@gmail.com</p>
             </div>
-            <div class="client">
-                <h2>Client</h2>
-                <p>{{ $order->customer_name }}</p>
-                <p>{{ $order->customer_address }}</p>
-                <p>{{ $order->customer_phone }}</p>
-                <p>{{ $order->customer_email }}</p>
-            </div>
-        </div> --}}
-
-        <div style="display: inline-block; width: 100%; margin-top: 50px">
-            <div style="display: inline-block; width: 320px; background-color: #f2f2f2; padding: 25px;">
-                <h2>Émetteur</h2>
-                <p>Nom de l'entreprise</p>
-                <p>Adresse</p>
-                <p>Téléphone</p>
-                <p>Email</p>
-            </div>
-            <div style="display: inline-block; width: 320px; float: right; background-color: #fff; padding: 25px; border: #555 1px solid;">
-                <h2>Client</h2>
-                <p>{{ $order->customer_name }}</p>
-                <p>{{ $order->customer_address }}</p>
-                <p>{{ $order->customer_phone }}</p>
+            <div style="display: inline-block; width: 320px; background-color: #f2f2f2; padding: 15px; margin: 0 0 0 10px;">
+                <h2 style="font-size: 16px;">Client</h2>
+                <p style="margin-bottom: -10px;">{{ $order->customer_name }}</p>
+                <p style="margin-bottom: -10px;">{{ $order->customer_address }}</p>
+                <p style="margin-bottom: -10px;">{{ $order->customer_phone }}</p>
                 <p>{{ $order->customer_email }}</p>
             </div>
         </div>
 
-        <p style="text-align: center; margin-top: 50px">Voici ci dessous le détail des prestations proposées ainsi que leur tarification associée :</p>
+        <p style="text-align: center; margin-top: -10px">Voici ci dessous le détail des prestations proposées ainsi que leur tarification associée :</p>
 
-        <div style="margin-top: 50px">
+        <div style="">
             <table class="table-devis">
                 <thead>
                     <tr>

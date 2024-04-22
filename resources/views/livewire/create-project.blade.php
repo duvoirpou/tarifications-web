@@ -49,7 +49,7 @@
         </div>
     </div>
 
-    @if (!is_null($type_id) AND $types)
+    @if (!is_null($type_id) and $types)
         @foreach ($types_functionalities as $item)
             <div id="extraOptionGroup1" class="row option-box">
                 <div class="price-box"><sup></sup>{{ $item->functionality->ranking->coefficient }}</div>
@@ -84,5 +84,9 @@
         @endforeach
     @endif
     <!-- Calculator Area End -->
-
+    <script>
+        document.getElementById('categorie').addEventListener('change', function() {
+            document.getElementById('type').value = '';
+        });
+    </script>
 </div>

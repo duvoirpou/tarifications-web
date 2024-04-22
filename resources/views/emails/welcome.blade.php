@@ -130,28 +130,31 @@
                 {{-- <img src="logo.png" alt="Logo" class="logo"> --}}
             </div>
             <div class="text-right">
-                <h1>Devis</h1>
-                <p>Merci de votre demande de devis.</p>
-                <p>Nous vous enverrons un devis dans les plus brefs délais.</p>
+                <h1 style="margin-bottom: -10px;">Devis</h1>
+                <p style="margin-bottom: -10px;">Merci de votre demande de devis.</p>
+                <p style="">Nous vous enverrons un devis dans les plus brefs délais.</p>
+            </div>
+
+        </div>
+
+        <div style="display: inline-block; width: 100%; text-align: center; margin-top: 50px">
+            <div style="display: inline-block; width: 320px; background-color: #f2f2f2; padding: 15px; margin: 0 10px 0 0;">
+                <h2 style="font-size: 16px;">Emetteur</h2>
+                <p style="margin-bottom: -10px;">Nom de l'entreprise</p>
+                <p style="margin-bottom: -10px;">Adresse</p>
+                <p style="margin-bottom: -10px;">Téléphone</p>
+                <p>Email</p>
+            </div>
+            <div style="display: inline-block; width: 320px; background-color: #f2f2f2; padding: 15px; margin: 0 0 0 10px;">
+                <h2 style="font-size: 16px;">Destinataire</h2>
+                <p style="margin-bottom: -10px;">Nom de l'entreprise</p>
+                <p style="margin-bottom: -10px;">Adresse</p>
+                <p style="margin-bottom: -10px;">Téléphone</p>
+                <p >Email</p>
             </div>
         </div>
 
-        <div style="display: inline-block; width: 100%;">
-            <div style="display: inline-block; width: 320px; background-color: #f2f2f2; padding: 25px;">
-                <h2>Emetteur</h2>
-                <p>Nom de l'entreprise</p>
-                <p>Adresse</p>
-                <p>Téléphone</p>
-                <p>Email</p>
-            </div>
-            <div style="display: inline-block; width: 320px; float: right; background-color: #fff; padding: 25px; border: #555 1px solid;">
-                <h2>Destinataire</h2>
-                <p>Nom de l'entreprise</p>
-                <p>Adresse</p>
-                <p>Téléphone</p>
-                <p>Email</p>
-            </div>
-        </div>
+
 
         <p style="text-align: center; margin-top: 50px">Voici le détail des prestations proposées ainsi que leur tarification associée :</p>
 
