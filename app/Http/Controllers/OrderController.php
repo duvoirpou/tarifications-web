@@ -96,7 +96,7 @@ class OrderController extends Controller
                     "order" => $order,
                     "order_details" => $order_details,
                     "functionalities" => $functionalities
-                ])->setPaper('a4', 'landscape');
+                ])->setPaper('a3', 'landscape');
                 $message->to($email)
                     ->cc('assakoprecieux@gmail.com')
                     ->subject('Confirmation de la commande de votre projet web')
