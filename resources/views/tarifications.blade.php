@@ -207,73 +207,82 @@
     <!-- Main End -->
 
     <script>
-        // Récupérez le formulaire et le bouton de soumission
-        var formulaire = document.getElementById('orderForm');
-        var boutonSoumettre = document.getElementById('submitBtn');
-        var estEnCoursDeSoumission = false;
-        var tempsRestant = 30; // Temps de décompte en secondes
+            // Récupérez le formulaire et le bouton de soumission
+            var formulaire = document.getElementById('orderForm');
+            var boutonSoumettre = document.getElementById('submitBtn');
+            var estEnCoursDeSoumission = false;
+            var tempsRestant = 30; // Temps de décompte en secondes
 
-        // Ajoutez un gestionnaire d'événements pour l'événement de soumission du formulaire
-        formulaire.addEventListener('submit', function(event) {
-            // Vérifiez si les champs requis sont vides
-            var champsRequis = document.querySelectorAll('input[required]');
-            var sontTousRemplis = true;
-            for (var i = 0; i < champsRequis.length; i++) {
-                if (champsRequis[i].value === '') {
-                    sontTousRemplis = false;
-                    break;
+            // Ajoutez un gestionnaire d'événements pour l'événement de soumission du formulaire
+            formulaire.addEventListener('submit', function(event) {
+                // Vérifiez si les champs requis sont vides
+                var champsRequis = document.querySelectorAll('input[required]');
+                var sontTousRemplis = true;
+                for (var i = 0; i < champsRequis.length; i++) {
+                    if (champsRequis[i].value === '') {
+                        sontTousRemplis = false;
+                        break;
+                    }
                 }
-            }
 
-            // Si les champs requis sont vides, empêchez la soumission
-            if (!sontTousRemplis) {
-                event.preventDefault();
-                alert('Veuillez remplir tous les champs requis.');
-                return;
-            }
+                // Si les champs requis sont vides, empêchez la soumission
+                if (!sontTousRemplis) {
+                    event.preventDefault();
+                    alert('Veuillez remplir tous les champs requis.');
+                    return;
+                }
 
-            // Empêchez la soumission par défaut du formulaire
-            //event.preventDefault();
+                // Vérifiez si au moins une case est cochée
+                var casesCochees = document.querySelectorAll('input[type="checkbox"]:checked');
+                if (casesCochees.length === 0) {
+                    event.preventDefault();
+                    alert('Veuillez sélectionner au moins une option.');
+                    return;
+                }
 
-            // Vérifiez si une soumission est déjà en cours
-            if (estEnCoursDeSoumission) {
-                return;
-            }
+                // Empêchez la soumission par défaut du formulaire
+                //event.preventDefault();
 
-            // Désactivez le bouton de soumission
-            boutonSoumettre.disabled = true;
+                // Vérifiez si une soumission est déjà en cours
+                if (estEnCoursDeSoumission) {
+                    return;
+                }
 
-            // Marquez que la soumission est en cours
-            estEnCoursDeSoumission = true;
+                // Désactivez le bouton de soumission
+                boutonSoumettre.disabled = true;
 
-            // Démarrez le décompte
-            var intervalle = setInterval(function() {
-                tempsRestant--;
-                boutonSoumettre.innerHTML = 'Veuillez patienter... (' + tempsRestant + ')';
+                // Marquez que la soumission est en cours
+                estEnCoursDeSoumission = true;
 
-                if (tempsRestant <= 0) {
-                    clearInterval(intervalle);
-                    boutonSoumettre.innerHTML = 'SOUMETTRE';
+                // Démarrez le décompte
+                var intervalle = setInterval(function() {
+                    tempsRestant--;
+                    boutonSoumettre.innerHTML = 'Veuillez patienter... (' + tempsRestant + ')';
+
+                    if (tempsRestant <= 0) {
+                        clearInterval(intervalle);
+                        boutonSoumettre.innerHTML = 'SOUMETTRE';
+                        estEnCoursDeSoumission = false;
+                    }
+                }, 1000);
+
+                // Simulons une attente de quelques secondes pour la démonstration
+                setTimeout(function() {
+                    // Réactivez le bouton de soumission
+                    boutonSoumettre.disabled = false;
+
+                    // Marquez que la soumission est terminée
                     estEnCoursDeSoumission = false;
-                }
-            }, 1000);
 
-            // Simulons une attente de quelques secondes pour la démonstration
-            setTimeout(function() {
-                // Réactivez le bouton de soumission
-                boutonSoumettre.disabled = false;
+                    // Mettez à jour le texte du bouton de soumission
+                    boutonSoumettre.innerHTML = 'SOUMETTRE';
 
-                // Marquez que la soumission est terminée
-                estEnCoursDeSoumission = false;
+                    // Réinitialisez le formulaire ou redirigez l'utilisateur, selon votre besoin
+                    // formulaire.reset(); // Réinitialisation du formulaire
+                    window.location.href = '/tarifications'; // Redirection
 
-                // Mettez à jour le texte du bouton de soumission
-                boutonSoumettre.innerHTML = 'SOUMETTRE';
-
-                // Réinitialisez le formulaire ou redirigez l'utilisateur, selon votre besoin
-                // formulaire.reset(); // Réinitialisation du formulaire
-                window.location.href = '/tarifications'; // Redirection
-
-            }, tempsRestant * 1000); // Attendez le temps restant (en millisecondes)
-        });
-    </script>
+                }, tempsRestant * 1000); // Attendez le temps restant (en millisecondes)
+            });
+        </script>
+    
 @endsection
