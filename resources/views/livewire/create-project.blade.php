@@ -50,7 +50,7 @@
     </div>
 
     @if (!is_null($type_id) and $types)
-        @foreach ($types_functionalities as $item)
+        @foreach ($types_functionalities->sortBy('functionality.ranking.coefficient') as $item)
             <div id="extraOptionGroup1" class="row option-box">
                 <div class="price-box"><sup></sup>{{ $item->functionality->ranking->coefficient }}</div>
 
@@ -70,11 +70,11 @@
                         </span>
                     </label>
                     {{-- <label class="cbx" for="">
-                            <input type="checkbox" name="selected_functionalities_ids[]"
-                                value="{{ $item->functionality->id }}" data-autre-valeur="{{ $item->functionality->ranking->coefficient }}"
-                                style="font-size: 1.5rem !important;" onchange="updatePrice(this.value)" />
-                            <span id="extraOption1Title">Choisir</span>
-                        </label> --}}
+                                    <input type="checkbox" name="selected_functionalities_ids[]"
+                                        value="{{ $item->functionality->id }}" data-autre-valeur="{{ $item->functionality->ranking->coefficient }}"
+                                        style="font-size: 1.5rem !important;" onchange="updatePrice(this.value)" />
+                                    <span id="extraOption1Title">Choisir</span>
+                                </label> --}}
                 </div>
                 <div class="option-box-header">
                     {{-- <h3>{{ $item->functionality->name }}</h3> --}}
@@ -82,6 +82,7 @@
                 </div>
             </div>
         @endforeach
+
     @endif
     <!-- Calculator Area End -->
     <script>
