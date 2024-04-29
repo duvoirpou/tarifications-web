@@ -2,8 +2,8 @@
     <!-- Calculator Area -->
     <div id="optionGroup1" class="row option-box">
         {{-- <div class="ribbon-left"><span class="left">Populaires</span></div> --}}
-        <span class="price-box-desc">Prix</span>
-        <div class="price-box w-25">
+        <span class="price-box-desc">Prix de base</span>
+        <div class="price-box w-50">
             <sup>XAF</sup>
             @if ($categorie_id)
                 <span class="typePrice" hidden>{{ $typePrice }}</span>
@@ -15,7 +15,7 @@
 
         <div class="option-box-header">
 
-            <h3>Catégories & types</h3>
+            <h3 style="margin-top: 50px">Catégories & types</h3>
             <p>
                 @if ($type_id && $type_id != 0)
                     {{ $get_type->description }}

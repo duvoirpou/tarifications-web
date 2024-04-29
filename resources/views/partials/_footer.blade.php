@@ -24,17 +24,17 @@
                 <ul class="list-unstyled contact-links">
                     <li><i class="icon icon-map-marker"></i><a href="#." class="footer-link">Adresse : Brazzaville, Congo</a>
                     </li>
-                    <li><i class="icon icon-envelope3"></i><a href="mailto:contact@tala.cg" class="footer-link">Mail : contact@tala.cg</a></li>
-                    <li><i class="icon icon-phone2"></i><a href="tel:+242065014865" class="footer-link">Téléphone : +242 06 501 48 65</a></li>
+                    <li><i class="icon icon-envelope3"></i><a href="mailto:contact@weegosoft.com" class="footer-link">Email : contact@weegosoft.com</a></li>
+                    <li><i class="icon icon-phone2"></i><a href="tel:+242050963237" class="footer-link">Téléphone1 : +242 05 096 32 37</a></li>
+                    <li><i class="icon icon-smartphone"></i><a href="tel:+242069897169" class="footer-link">Téléphone2 : +242 06 989 71 69</a></li>
                 </ul>
             </div>
             <div class="col-md-2">
                 <h5 class="footer-heading">Suivez-nous</h5>
                 <ul class="list-unstyled social-links">
-                    <li><a href="https://facebook.com" class="social-link" target="_blank"><i class="icon icon-facebook"></i></a></li>
-                    <li><a href="https://twitter.com" class="social-link" target="_blank"><i class="icon icon-twitter"></i></a></li>
-                    <li><a href="https://instagram.com" class="social-link" target="_blank"><i class="icon icon-instagram"></i></a></li>
-                    <li><a href="https://pinterest.com" class="social-link" target="_blank"><i class="icon icon-pinterest"></i></a></li>
+                    <li><a href="#." class="social-link" target="_blank"><i class="icon icon-facebook"></i></a></li>
+                    <li><a href="#." class="social-link" target="_blank"><i class="icon icon-twitter"></i></a></li>
+                    <li><a href="#." class="social-link" target="_blank"><i class="icon icon-instagram"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -42,7 +42,7 @@
         <div class="row">
             <div class="col-md-8">
                 <ul id="subFooterLinks">
-                    <li>With <i class="fa fa-heart pulse"></i> by <a href="https://tala.cg" target="_blank">Tala </a> & <a href="https://weegosoft.com" target="_blank">Weegosoft</a></li>
+                    <li>With <i class="fa fa-heart pulse"></i> by <a href="https://tala.cg" target="_blank">Tala </a> & <a href="https://infos.weegosoft.com/" target="_blank">Weegosoft</a></li>
                     {{-- <li><a href="pdf/terms.pdf" target="_blank">Terms and conditions</a></li> --}}
                     {{-- <li><a href="faq.html">Faq</a></li> --}}
                 </ul>

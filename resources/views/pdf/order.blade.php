@@ -126,7 +126,7 @@
     <div class="container">
         <div class="content">
             <div>
-                <img src="{{ public_path('storage/images/Tala-1.png') }}" style="width: 100px; float: left;" alt="Logo"
+                <img src="{{ public_path('storage/images/logo-weegosoft.jpeg') }}" style="width: 100px; float: left;" alt="Logo"
                 class="logo">
             </div>
             <div class="text-right">
@@ -247,7 +247,7 @@
             <p>Signature du client</p>
         </div>
         <p class="text-center" style="margin-bottom: 100px">
-            <a href="https://www.tala.cg">www.tala.cg</a>
+            <a href="https://www.infos.weegosoft.com">www.infos.weegosoft.com</a>
         </p>
     </div>
 </body>

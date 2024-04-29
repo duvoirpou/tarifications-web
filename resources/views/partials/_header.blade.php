@@ -10,9 +10,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-6">
-                {{-- <div id="logo">
-                    <h1><a href="index.html" title="Costy">Costy</a></h1>
-                </div> --}}
+                <div id="logo">
+                    <h1><a href="/" title="Weegosoft">Weegosoft</a></h1>
+                </div>
             </div>
             <div class="col-lg-9 col-6">
                 {{-- <ul id="menuIcons">
