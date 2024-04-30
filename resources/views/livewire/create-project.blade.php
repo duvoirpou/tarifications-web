@@ -5,7 +5,7 @@
         <span class="price-box-desc">Prix de base</span>
         <div class="price-box w-50">
             @if ($categorie_id and $type_id)
-            
+
                 @if ($continent_code == 'AF')
                     <sup>XAF</sup>
                 @else
