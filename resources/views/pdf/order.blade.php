@@ -190,12 +190,12 @@
                                     @else
                                         <p>
                                             {{ $feature->order->type->name }}
-                                            ({{ number_format($feature->order->type->price, 0, ',', '.') }} XAF)
+                                            ({{ number_format($feature->order->type->price / 655, 0, ',', '.') }} €)
                                         </p>
                                     @endif
                                     {{-- <p style="text-align: justify">
-                                        {{ $feature->order->type->description }}
-                                    </p> --}}
+                                                    {{ $feature->order->type->description }}
+                                                </p> --}}
                                 @endif
                                 <ul>
                                     <li>
@@ -204,23 +204,41 @@
                                             ({{ number_format(($feature->order->type->price / 2) * $feature->functionality->ranking->coefficient, 0, ',', '.') }}
                                             XAF)
                                         @else
-                                            ({{ number_format($feature->order->type->price * $feature->functionality->ranking->coefficient, 0, ',', '.') }}
-                                            XAF)
+                                            ({{ number_format(($feature->order->type->price / 655) * $feature->functionality->ranking->coefficient, 0, ',', '.') }}
+                                            €)
                                         @endif
                                     </li>
                                 </ul>
                             @endforeach
                         </td>
                         <td>0%</td>
-                        <td>{{ number_format($order->total_amount, 0, ',', '.') }} XAF</td>
+                        <td>
+                            @if ($continent_code == 'AF')
+                                {{ number_format($order->total_amount, 0, ',', '.') }} XAF
+                            @else
+                                {{ number_format($order->total_amount, 0, ',', '.') }} €
+                            @endif
+                        </td>
                         <td>1</td>
-                        <td>{{ number_format($order->total_amount, 0, ',', '.') }} XAF</td>
+                        <td>
+                            @if ($continent_code == 'AF')
+                                {{ number_format($order->total_amount, 0, ',', '.') }} XAF
+                            @else
+                                {{ number_format($order->total_amount, 0, ',', '.') }} €
+                            @endif
+                        </td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
                         <td colspan="4">Total HT</td>
-                        <td>{{ number_format($order->total_amount, 0, ',', '.') }} XAF</td>
+                        <td>
+                            @if ($continent_code == 'AF')
+                                {{ number_format($order->total_amount, 0, ',', '.') }} XAF
+                            @else
+                                {{ number_format($order->total_amount, 0, ',', '.') }} €
+                            @endif
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="4">TVA</td>
@@ -228,10 +246,17 @@
                     </tr>
                     <tr style="background-color: #f2f2f2">
                         <td colspan="4">Total TTC</td>
-                        <td>{{ number_format($order->total_amount, 0, ',', '.') }} XAF</td>
+                        <td>
+                            @if ($continent_code == 'AF')
+                                {{ number_format($order->total_amount, 0, ',', '.') }} XAF
+                            @else
+                                {{ number_format($order->total_amount, 0, ',', '.') }} €
+                            @endif
+                        </td>
                     </tr>
                 </tfoot>
             </table>
+
         </div>
 
         <div class="conditions-reglement">

@@ -19,6 +19,8 @@ class CreateProject extends Component
     public $get_type;
     public $get_categorie;
 
+    public $continent_code;
+
     public function mount()
     {
         $this->categories = Category::all();
@@ -57,6 +59,9 @@ class CreateProject extends Component
                     // Diviser typePrice par deux
                     $this->typePrice = $prix->price / 2;
                     // Afficher un message d'erreur dd($this->typePrice);
+
+                    $this->continent_code = $location->geoplugin_continentCode;
+
                 } else {
                     $this->typePrice = $prix->price;
                 }

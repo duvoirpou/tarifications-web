@@ -4,10 +4,20 @@
         {{-- <div class="ribbon-left"><span class="left">Populaires</span></div> --}}
         <span class="price-box-desc">Prix de base</span>
         <div class="price-box w-50">
-            <sup>XAF</sup>
-            @if ($categorie_id)
+            @if ($categorie_id and $type_id)
+            
+                @if ($continent_code == 'AF')
+                    <sup>XAF</sup>
+                @else
+                    <sup>€</sup>
+                @endif
+
                 <span class="typePrice" hidden>{{ $typePrice }}</span>
-                <span>{{ number_format($typePrice, 2, ',', ' ') }}</span>
+                @if ($continent_code == 'AF')
+                    <span>{{ number_format($typePrice, 2, ',', ' ') }}</span>
+                @else
+                    <span>{{ number_format($typePrice / 655, 2, '.', ' ') }}</span>
+                @endif
             @else
                 <span class="typePrice">0</span>
             @endif
