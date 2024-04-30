@@ -39,7 +39,7 @@
                                     <div class="form-group">
                                         <label for="customer_name">Nom complet</label>
                                         <input id="customer_name" class="form-control" name="customer_name" type="text"
-                                             required />{{-- data-parsley-pattern="^[a-zA-Z\s.]+$" --}}
+                                            required />{{-- data-parsley-pattern="^[a-zA-Z\s.]+$" --}}
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
@@ -53,21 +53,21 @@
                                     <div class="form-group">
                                         <label for="customer_phone">Téléphone</label>
                                         <input id="customer_phone" class="form-control" name="customer_phone" type="text"
-                                             required />{{-- data-parsley-pattern="^\+{1}[0-9]+$" --}}
+                                            required />{{-- data-parsley-pattern="^\+{1}[0-9]+$" --}}
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
                                         <label for="customer_address">Adresse</label>
                                         <input id="customer_address" class="form-control" name="customer_address"
-                                            type="text"  required />{{-- data-parsley-pattern="^[,.a-zA-Z0-9\s.]+$" --}}
+                                            type="text" required />{{-- data-parsley-pattern="^[,.a-zA-Z0-9\s.]+$" --}}
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="inputMessage">Informations additionnelles concernant le projet (facultatif)</label>
-                                        <textarea class="form-control" id="inputMessage" name="additional_information"
-                                            ></textarea>{{-- data-parsley-pattern="^[a-zA-Z0-9\s.:,!?']+$" --}}
+                                        <label for="inputMessage">Informations additionnelles concernant le projet
+                                            (facultatif)</label>
+                                        <textarea class="form-control" id="inputMessage" name="additional_information"></textarea>{{-- data-parsley-pattern="^[a-zA-Z0-9\s.:,!?']+$" --}}
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +97,13 @@
                                                 <h6> Total :</h6>
                                             </div>
                                             <div class="col-6 p-0">
-                                                <sup>XAF</sup>
+                                                @if ($continent_code == 'AF')
+                                                    <sup>XAF</sup>
+                                                @elseif ($continent_code != 'AF' and $continent_code != '')
+                                                    <sup>€</sup>
+                                                @else
+                                                    <sup></sup>
+                                                @endif
                                                 <span id="totalPriceValue"></span>
                                                 <input type="hidden" id="totalPriceInputValue" name="total_amount">
                                             </div>
@@ -207,82 +213,81 @@
     <!-- Main End -->
 
     <script>
-            // Récupérez le formulaire et le bouton de soumission
-            var formulaire = document.getElementById('orderForm');
-            var boutonSoumettre = document.getElementById('submitBtn');
-            var estEnCoursDeSoumission = false;
-            var tempsRestant = 30; // Temps de décompte en secondes
+        // Récupérez le formulaire et le bouton de soumission
+        var formulaire = document.getElementById('orderForm');
+        var boutonSoumettre = document.getElementById('submitBtn');
+        var estEnCoursDeSoumission = false;
+        var tempsRestant = 30; // Temps de décompte en secondes
 
-            // Ajoutez un gestionnaire d'événements pour l'événement de soumission du formulaire
-            formulaire.addEventListener('submit', function(event) {
-                // Vérifiez si les champs requis sont vides
-                var champsRequis = document.querySelectorAll('input[required]');
-                var sontTousRemplis = true;
-                for (var i = 0; i < champsRequis.length; i++) {
-                    if (champsRequis[i].value === '') {
-                        sontTousRemplis = false;
-                        break;
-                    }
+        // Ajoutez un gestionnaire d'événements pour l'événement de soumission du formulaire
+        formulaire.addEventListener('submit', function(event) {
+            // Vérifiez si les champs requis sont vides
+            var champsRequis = document.querySelectorAll('input[required]');
+            var sontTousRemplis = true;
+            for (var i = 0; i < champsRequis.length; i++) {
+                if (champsRequis[i].value === '') {
+                    sontTousRemplis = false;
+                    break;
                 }
+            }
 
-                // Si les champs requis sont vides, empêchez la soumission
-                if (!sontTousRemplis) {
-                    event.preventDefault();
-                    alert('Veuillez remplir tous les champs requis.');
-                    return;
-                }
+            // Si les champs requis sont vides, empêchez la soumission
+            if (!sontTousRemplis) {
+                event.preventDefault();
+                alert('Veuillez remplir tous les champs requis.');
+                return;
+            }
 
-                // Vérifiez si au moins une case est cochée
-                var casesCochees = document.querySelectorAll('input[type="checkbox"]:checked');
-                if (casesCochees.length === 0) {
-                    event.preventDefault();
-                    alert('Veuillez sélectionner au moins une option.');
-                    return;
-                }
+            // Vérifiez si au moins une case est cochée
+            var casesCochees = document.querySelectorAll('input[type="checkbox"]:checked');
+            if (casesCochees.length === 0) {
+                event.preventDefault();
+                alert('Veuillez sélectionner au moins une option.');
+                return;
+            }
 
-                // Empêchez la soumission par défaut du formulaire
-                //event.preventDefault();
+            // Empêchez la soumission par défaut du formulaire
+            //event.preventDefault();
 
-                // Vérifiez si une soumission est déjà en cours
-                if (estEnCoursDeSoumission) {
-                    return;
-                }
+            // Vérifiez si une soumission est déjà en cours
+            if (estEnCoursDeSoumission) {
+                return;
+            }
 
-                // Désactivez le bouton de soumission
-                boutonSoumettre.disabled = true;
+            // Désactivez le bouton de soumission
+            boutonSoumettre.disabled = true;
 
-                // Marquez que la soumission est en cours
-                estEnCoursDeSoumission = true;
+            // Marquez que la soumission est en cours
+            estEnCoursDeSoumission = true;
 
-                // Démarrez le décompte
-                var intervalle = setInterval(function() {
-                    tempsRestant--;
-                    boutonSoumettre.innerHTML = 'Veuillez patienter... (' + tempsRestant + ')';
+            // Démarrez le décompte
+            var intervalle = setInterval(function() {
+                tempsRestant--;
+                boutonSoumettre.innerHTML = 'Veuillez patienter... (' + tempsRestant + ')';
 
-                    if (tempsRestant <= 0) {
-                        clearInterval(intervalle);
-                        boutonSoumettre.innerHTML = 'SOUMETTRE';
-                        estEnCoursDeSoumission = false;
-                    }
-                }, 1000);
-
-                // Simulons une attente de quelques secondes pour la démonstration
-                setTimeout(function() {
-                    // Réactivez le bouton de soumission
-                    boutonSoumettre.disabled = false;
-
-                    // Marquez que la soumission est terminée
-                    estEnCoursDeSoumission = false;
-
-                    // Mettez à jour le texte du bouton de soumission
+                if (tempsRestant <= 0) {
+                    clearInterval(intervalle);
                     boutonSoumettre.innerHTML = 'SOUMETTRE';
+                    estEnCoursDeSoumission = false;
+                }
+            }, 1000);
 
-                    // Réinitialisez le formulaire ou redirigez l'utilisateur, selon votre besoin
-                    // formulaire.reset(); // Réinitialisation du formulaire
-                    window.location.href = '/tarifications'; // Redirection
+            // Simulons une attente de quelques secondes pour la démonstration
+            setTimeout(function() {
+                // Réactivez le bouton de soumission
+                boutonSoumettre.disabled = false;
 
-                }, tempsRestant * 1000); // Attendez le temps restant (en millisecondes)
-            });
-        </script>
-    
+                // Marquez que la soumission est terminée
+                estEnCoursDeSoumission = false;
+
+                // Mettez à jour le texte du bouton de soumission
+                boutonSoumettre.innerHTML = 'SOUMETTRE';
+
+                // Réinitialisez le formulaire ou redirigez l'utilisateur, selon votre besoin
+                // formulaire.reset(); // Réinitialisation du formulaire
+                window.location.href = '/tarifications'; // Redirection
+
+            }, tempsRestant * 1000); // Attendez le temps restant (en millisecondes)
+        });
+    </script>
 @endsection
