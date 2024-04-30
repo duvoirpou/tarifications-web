@@ -76,11 +76,22 @@ class OrderController extends Controller
 
             $functionalities = OrderDetail::where('order_id', $order_details->order_id)->with('functionality')->get();
 
+            $ip = request()->ip();
+
+            // Récupérer la localisation de l'adresse IP
+            $location = json_decode(file_get_contents('http://www.geoplugin.net/json.gp?ip=' . $ip));
+
+            // Vérifier si l'utilisateur est en dehors de l'Afrique
+            if (isset($location->geoplugin_continentCode) && $location->geoplugin_continentCode == 'AF') {
+                $continent_code = "AF";
+            }
+
             // Générer une facture au format PDF
             $pdf = Pdf::loadView('pdf.order', [
                 "order" => $order,
                 "order_details" => $order_details,
-                "functionalities" => $functionalities
+                "functionalities" => $functionalities,
+                "continent_code" => $continent_code ?? ''
 
             ])->setPaper('a3', 'landscape');
 
