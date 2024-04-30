@@ -7,8 +7,10 @@
         <div class="hero-home bg-mockup">
             <div class="content">
                 <h3>Calculateur de coûts</h3>
-                <p>& Assistant de commande.  Avec génération de résumé PDF.</p>
-                <a href="{{ route('tarifications') }}" class="btn-1 medium">Demandez un dévis</a>
+                <p>
+                    Générez votre devis de création de site web en cinq minutes!
+                </p>
+                <a href="{{ route('tarifications') }}" class="btn-1 medium">Allez-y !</a>
             </div>
         </div>
         <!-- Hero End -->
