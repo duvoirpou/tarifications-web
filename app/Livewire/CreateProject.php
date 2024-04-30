@@ -46,7 +46,20 @@ class CreateProject extends Component
             //dd($prix);
             //dd($prix->price);
             if ($prix) {
-                $this->typePrice = $prix->price;
+                // Récupérer l'adresse IP de l'utilisateur
+                $ip = $_SERVER['REMOTE_ADDR'];
+
+                // Récupérer la localisation de l'adresse IP
+                $location = json_decode(file_get_contents('http://www.geoplugin.net/json.gp?ip=' . $ip));
+
+                // Vérifier si l'utilisateur est en dehors de l'Afrique
+                if (isset($location->geoplugin_continentCode) && $location->geoplugin_continentCode == 'AF') {
+                    // Diviser typePrice par deux
+                    $this->typePrice = $prix->price / 2;
+                    // Afficher un message d'erreur dd($this->typePrice);
+                } else {
+                    $this->typePrice = $prix->price;
+                }
             } else {
                 $this->typePrice = 0;
             }
@@ -63,3 +76,4 @@ class CreateProject extends Component
 
 
 }
+
