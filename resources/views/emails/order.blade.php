@@ -62,7 +62,7 @@
 
 <body>
     <div class="container">
-        <div class="introduction" style="text-align: justify">
+        {{-- <div class="introduction" style="text-align: justify">
             <p style="margin-top: 10px"><b>Madame, Monsieur,</b></p>
 
             <p style="margin-top: 10px">
@@ -93,6 +93,38 @@
 
         <div class="ps">
             <p  style="margin-top: 10px"><b> P.S.</b> Si vous validez ce devis, merci de me le retourner signé et accompagné d'un acompte de 50%.</p>
+        </div> --}}
+
+        <div class="introduction" style="text-align: justify">
+            <p style="margin-top: 10px"><b>Madame, Monsieur,</b></p>
+
+            <p style="margin-top: 10px">
+                Nous vous remercions de l'intérêt que vous portez à <b>WEEGOSOFT</b> et pour votre projet <b> {{ $order->project_name }}</b>.
+            </p>
+            <p style="margin-top: 10px">
+                Nous vous adressons ci-joint le devis pour la réalisation de ce projet. Il détaille les différentes
+                prestations que nous proposons, ainsi que leur prix.
+            </p>
+            <p style="margin-top: 10px">
+                N'hésitez pas à nous contacter si vous avez des questions ou si vous souhaitez modifier ce devis.
+            </p>
+        </div>
+
+        <div class="contact">
+            <p style="margin-top: 10px">Cordialement,</p>
+            <p style="margin-top: 10px">
+                <b>L'équipe WEEGOSOFT</b>
+            </p>
+            <p  style="margin-top: 10px">
+                <b>+242 05 096 32 37</b> | <b>+242 06 989 71 69</b>
+            </p>
+            <p  style="margin-top: 10px">
+                <b>www.weegosoft.com</b>
+            </p>
+        </div>
+
+        <div class="ps">
+            <p  style="margin-top: 10px"><b> P.S.</b> Si vous validez ce devis, merci de nous le retourner signé.</p>
         </div>
     </div>
 </body>

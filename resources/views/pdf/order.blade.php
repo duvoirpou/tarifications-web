@@ -182,7 +182,7 @@
                                         $feature->order->type->category->name != $functionalities[$loop->index - 1]->order->type->category->name ||
                                         $feature->order->type->name != $functionalities[$loop->index - 1]->order->type->name)
                                     <p>{{ $feature->order->type->category->name }}</p>
-                                    @if ($continent_code == 'AF')
+                                    @if (isset($continent_code) and $continent_code == 'AF')
                                         <p>
                                             {{ $feature->order->type->name }}
                                             ({{ number_format($feature->order->type->price / 2, 0, ',', '.') }} XAF)
@@ -200,7 +200,7 @@
                                 <ul>
                                     <li>
                                         {{ $feature->functionality->name }}
-                                        @if ($continent_code == 'AF')
+                                        @if (isset($continent_code) and $continent_code == 'AF')
                                             ({{ number_format(($feature->order->type->price / 2) * $feature->functionality->ranking->coefficient, 0, ',', '.') }}
                                             XAF)
                                         @else
@@ -213,18 +213,18 @@
                         </td>
                         <td>0%</td>
                         <td>
-                            @if ($continent_code == 'AF')
+                            @if (isset($continent_code) and $continent_code == 'AF')
                                 {{ number_format($order->total_amount, 0, ',', '.') }} XAF
                             @else
-                                {{ number_format($order->total_amount, 0, ',', '.') }} €
+                                {{ number_format($order->total_amount  / 655, 0, ',', '.') }} €
                             @endif
                         </td>
                         <td>1</td>
                         <td>
-                            @if ($continent_code == 'AF')
+                            @if (isset($continent_code) and $continent_code == 'AF')
                                 {{ number_format($order->total_amount, 0, ',', '.') }} XAF
                             @else
-                                {{ number_format($order->total_amount, 0, ',', '.') }} €
+                                {{ number_format($order->total_amount  / 655, 0, ',', '.') }} €
                             @endif
                         </td>
                     </tr>
@@ -233,10 +233,10 @@
                     <tr>
                         <td colspan="4">Total HT</td>
                         <td>
-                            @if ($continent_code == 'AF')
+                            @if (isset($continent_code) and $continent_code == 'AF')
                                 {{ number_format($order->total_amount, 0, ',', '.') }} XAF
                             @else
-                                {{ number_format($order->total_amount, 0, ',', '.') }} €
+                                {{ number_format($order->total_amount  / 655, 0, ',', '.') }} €
                             @endif
                         </td>
                     </tr>
@@ -247,10 +247,10 @@
                     <tr style="background-color: #f2f2f2">
                         <td colspan="4">Total TTC</td>
                         <td>
-                            @if ($continent_code == 'AF')
+                            @if (isset($continent_code) and $continent_code == 'AF')
                                 {{ number_format($order->total_amount, 0, ',', '.') }} XAF
                             @else
-                                {{ number_format($order->total_amount, 0, ',', '.') }} €
+                                {{ number_format($order->total_amount  / 655, 0, ',', '.') }} €
                             @endif
                         </td>
                     </tr>
