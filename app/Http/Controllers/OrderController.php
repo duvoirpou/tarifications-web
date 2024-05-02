@@ -84,7 +84,10 @@ class OrderController extends Controller
             // Vérifier si l'utilisateur est en dehors de l'Afrique
             if (isset($location->geoplugin_continentCode) && $location->geoplugin_continentCode == 'AF') {
                 $continent_code = "AF";
+            } else {
+                $continent_code = null;
             }
+
 
             // Générer une facture au format PDF
             $pdf = Pdf::loadView('pdf.order', [
@@ -102,14 +105,29 @@ class OrderController extends Controller
             ], function ($message) use ($request, $order, $order_details) {
                 $email = $request->customer_email;  // Assign email inside the closure
                 $functionalities = OrderDetail::where('order_id', $order_details->order_id)->with('functionality')->get();
+
+                $ip = request()->ip();
+
+                // Récupérer la localisation de l'adresse IP
+                $location = json_decode(file_get_contents('http://www.geoplugin.net/json.gp?ip=' . $ip));
+
+                // Vérifier si l'utilisateur est en dehors de l'Afrique
+                if (isset($location->geoplugin_continentCode) && $location->geoplugin_continentCode == 'AF') {
+                    $continent_code = "AF";
+                } else {
+                    $continent_code = null;
+                }
+
                 // Generate PDF invoice file
                 $pdf = Pdf::loadView('pdf.order', [
                     "order" => $order,
                     "order_details" => $order_details,
-                    "functionalities" => $functionalities
-                ])->setPaper('a3', 'landscape');
+                    "functionalities" => $functionalities,
+                    "continent_code" => $continent_code ?? ''
+                ])->setPaper('a4', 'landscape');
                 $message->to($email)
-                    ->cc('assakoprecieux@gmail.com')
+                    ->cc('assakoprecieux@gmail.com', 'Assako')
+                    ->bcc('rolpharvey@gmail.com', 'Makiona')
                     ->subject('Confirmation de la commande de votre projet web')
                     ->attachData($pdf->output(), "commande-$order->project_name.pdf");
             });
