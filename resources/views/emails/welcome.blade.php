@@ -10,6 +10,8 @@
         body {
             font-family: sans-serif;
             margin: 20px;
+            font-size: 10pt;
+            line-height: 1.5
         }
 
         .container {
@@ -138,15 +140,15 @@
         </div>
 
         <div style="display: inline-block; width: 100%; text-align: center; margin-top: 50px">
-            <div style="display: inline-block; width: 320px; background-color: #f2f2f2; padding: 15px; margin: 0 10px 0 0;">
-                <h2 style="font-size: 16px;">Emetteur</h2>
+            <div style="display: inline-block; width: 270px; background-color: #f2f2f2; padding: 10px; margin: 0 10px 0 0;">
+                <h2 style="">Emetteur</h2>
                 <p style="margin-bottom: -10px;">Nom de l'entreprise</p>
                 <p style="margin-bottom: -10px;">Adresse</p>
                 <p style="margin-bottom: -10px;">Téléphone</p>
                 <p>Email</p>
             </div>
-            <div style="display: inline-block; width: 320px; background-color: #f2f2f2; padding: 15px; margin: 0 0 0 10px;">
-                <h2 style="font-size: 16px;">Destinataire</h2>
+            <div style="display: inline-block; width: 270px; background-color: #f2f2f2; padding: 10px; margin: 0 0 0 10px;">
+                <h2 style="">Destinataire</h2>
                 <p style="margin-bottom: -10px;">Nom de l'entreprise</p>
                 <p style="margin-bottom: -10px;">Adresse</p>
                 <p style="margin-bottom: -10px;">Téléphone</p>

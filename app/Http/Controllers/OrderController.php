@@ -96,7 +96,7 @@ class OrderController extends Controller
                 "functionalities" => $functionalities,
                 "continent_code" => $continent_code ?? ''
 
-            ])->setPaper('a3', 'landscape');
+            ])->setPaper('a4', 'portrait');
 
             // Envoyer un courriel de confirmation au client avec la facture en pièce jointe
             Mail::send('emails.order', [
@@ -124,7 +124,7 @@ class OrderController extends Controller
                     "order_details" => $order_details,
                     "functionalities" => $functionalities,
                     "continent_code" => $continent_code ?? ''
-                ])->setPaper('a4', 'landscape');
+                ])->setPaper('a4', 'portrait');
                 $message->to($email)
                     ->cc('assakoprecieux@gmail.com', 'Assako')
                     ->bcc('rolpharvey@gmail.com', 'Makiona')

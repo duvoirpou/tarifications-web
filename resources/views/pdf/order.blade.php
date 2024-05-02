@@ -10,6 +10,8 @@
         body {
             font-family: sans-serif;
             margin: 20px;
+            font-size: 10pt;
+            line-height: 1.5
         }
 
         .container {
@@ -142,17 +144,17 @@
 
         <div style="display: inline-block; width: 100%; text-align: center; margin-top: 50px">
             <div
-                style="display: inline-block; width: 320px; background-color: #f2f2f2; padding: 15px; margin: 0 10px 0 0;">
-                <h2 style="font-size: 16px;">Prestataire</h2>
-                <p style="margin-bottom: -10px;">Précieux Assako</p>
-                <p style="margin-bottom: -10px;">130 rue lekana, Moungali, Brazzaville</p>
-                <p style="margin-bottom: -10px;">+242 06 989 71 69</p>
-                <p>assakoprecieux@gmail.com</p>
+                style="display: inline-block; width: 270px; background-color: #f2f2f2; padding: 10px; margin: 0 10px 0 0;">
+                <h2 style="">Prestataire</h2>
+                <p style="margin-bottom: -10px;">WEEGOSOFT</p>
+                <p style="margin-bottom: -10px;">OCH, Arrêt Noelly, Pointe-Noire Congo</p>
+                <p style="margin-bottom: -10px;">+242 06 944 92 24</p>
+                <p>contact@weegosoft.com</p>
             </div>
             <div
-                style="display: inline-block; width: 320px; background-color: #f2f2f2; padding: 15px; margin: 0 0 0 10px;">
-                <h2 style="font-size: 16px;">Client</h2>
-                <p style="margin-bottom: -10px;">{{ $order->customer_name }}</p>
+                style="display: inline-block; width: 270px; background-color: #f2f2f2; padding: 10px; margin: 0 0 0 10px;">
+                <h2 style="">Client</h2>
+                <p style="margin-bottom: -10px;">{{ strtoupper($order->customer_name) }}</p>
                 <p style="margin-bottom: -10px;">{{ $order->customer_address }}</p>
                 <p style="margin-bottom: -10px;">{{ $order->customer_phone }}</p>
                 <p>{{ $order->customer_email }}</p>
@@ -294,7 +296,7 @@
             <p>Signature du client</p>
         </div>
         <p class="text-center" style="margin-bottom: 100px">
-            <a href="https://www.infos.weegosoft.com">www.infos.weegosoft.com</a>
+            <a href="https://www.weegosoft.com">www.weegosoft.com</a>
         </p>
     </div>
 </body>
