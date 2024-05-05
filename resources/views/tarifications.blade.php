@@ -1,6 +1,28 @@
 {{-- layout --}}
 @extends('layouts.app')
 
+@section('style')
+    <style>
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+        }
+
+        .floating-button:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+@endsection
+
 @section('content')
     <main>
         <!-- Order  -->
@@ -29,6 +51,11 @@
                                 </div>
                             </div>
                             @livewire('create-project')
+
+                            <button type="button" class="floating-button">
+                                Total : <span id="totalPrice"></span>
+                            </button>
+
                             <!-- Personal Details -->
                             <div id="personalDetails" class="row contact-box">
                                 <div class="contact-box-header">
@@ -184,6 +211,7 @@
 
                                 // Mettre à jour le prix total
                                 const totalPriceValue = document.querySelector('#totalPriceValue');
+                                const totalPrice = document.querySelector('#totalPrice');
 
                                 const typeSelect = document.getElementById('type');
                                 const typeValue = typeSelect.options[typeSelect.selectedIndex].value;
@@ -194,8 +222,10 @@
 
                                 if (isAnyChecked) {
                                     totalPriceValue.innerHTML = (typePrice + totalValue).toLocaleString();
+                                    totalPrice.innerHTML = (typePrice + totalValue).toLocaleString();
                                 } else {
                                     totalPriceValue.innerHTML = (0).toLocaleString();
+                                    totalPrice.innerHTML = (0).toLocaleString();
                                 }
                                 const totalPriceInputValue = document.querySelector('#totalPriceInputValue');
                                 totalPriceInputValue.value = typePrice + totalValue;

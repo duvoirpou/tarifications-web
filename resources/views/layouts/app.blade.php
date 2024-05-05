@@ -31,6 +31,8 @@
     <!-- Main CSS -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
+    @yield('style')
+
     @livewireStyles
 </head>
 

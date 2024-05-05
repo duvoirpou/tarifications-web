@@ -31,25 +31,25 @@
                                 <div class="box text-center">
                                     <div class="icon d-flex align-items-end"><i class="icon icon-map-marker"></i></div>
                                     <h3 class="contact-title">Adresse</h3>
-                                    <p>Brazzaville, Congo</p>
+                                    <p>OCH, Arrêt Noelly, Pointe-Noire Congo</p>
                                 </div>
                             </a>
                         </div>
                         <div class="col-lg-4">
-                            <a href="mailto:contact@tala.cg">
+                            <a href="mailto:contact@weegosoft.com">
                                 <div class="box text-center">
                                     <div class="icon d-flex align-items-end"><i class="icon icon-email"></i></div>
                                     <h3 class="contact-title">Email</h3>
-                                    <p>contact@tala.cg</p>
+                                    <p>contact@weegosoft.com</p>
                                 </div>
                             </a>
                         </div>
                         <div class="col-lg-4">
-                            <a href="tel:+242065014865">
+                            <a href="tel:+242050963237">
                                 <div class="box text-center">
                                     <div class="icon d-flex align-items-end"><i class="icon icon-phone-handset"></i></div>
                                     <h3 class="contact-title">Téléphone</h3>
-                                    <p>+242 06 501 48 65</p>
+                                    <p>+242 05 096 32 37</p>
                                 </div>
                             </a>
                         </div>
