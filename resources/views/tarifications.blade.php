@@ -3,22 +3,93 @@
 
 @section('style')
     <style>
-        .floating-button {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px;
-            font-size: 18px;
-            border: none;
-            cursor: pointer;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-            z-index: 9999;
+        /* // Extra small devices (portrait phones, less than 576px) */
+
+        @media (max-width: 575.98px) {
+
+            .floating-button {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                background-color: #4CAF50;
+                /* #ff7b79 */
+                color: white;
+                padding: 20px;
+                font-size: 18px;
+                border: none;
+                cursor: pointer;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+                z-index: 9999;
+            }
+
+            .floating-button:hover {
+                background-color: #3e8e41;
+                /* #ff9999 */
+            }
         }
 
-        .floating-button:hover {
-            background-color: #3e8e41;
+        /* // Small devices (landscape phones, 576px and up) */
+
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            .floating-button {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                background-color: #4CAF50;
+                /* #ff7b79 */
+                color: white;
+                padding: 20px;
+                font-size: 18px;
+                border: none;
+                cursor: pointer;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+                z-index: 9999;
+            }
+
+            .floating-button:hover {
+                background-color: #3e8e41;
+                /* #ff9999 */
+            }
+        }
+
+        /* // Medium devices (tablets, 768px and up) */
+
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .floating-button {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                background-color: #4CAF50;
+                /* #ff7b79 */
+                color: white;
+                padding: 20px;
+                font-size: 18px;
+                border: none;
+                cursor: pointer;
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+                z-index: 9999;
+            }
+
+            .floating-button:hover {
+                background-color: #3e8e41;
+                /* #ff9999 */
+            }
+        }
+
+        /* // Large devices (desktops, 992px and up) */
+
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            .floating-button {
+                display: none;
+            }
+        }
+
+        /* // Extra large devices (large desktops, 1200px and up) */
+
+        @media (min-width: 1200px) {
+            .floating-button {
+                display: none;
+            }
         }
     </style>
 @endsection
