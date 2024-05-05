@@ -183,6 +183,10 @@
                                     $loop->first ||
                                         $feature->order->type->category->name != $functionalities[$loop->index - 1]->order->type->category->name ||
                                         $feature->order->type->name != $functionalities[$loop->index - 1]->order->type->name)
+                                    {{-- vérifier si la propriété id de l'objet ranking est égale à 7, et si c'est le cas, passer à l'itération suivante. --}}
+                                    @if ($feature->functionality->ranking->id == 7)
+                                        @continue
+                                    @endif
                                     <p>{{ $feature->order->type->category->name }}</p>
                                     @if (isset($continent_code) and $continent_code == 'AF')
                                         <p>
@@ -199,6 +203,12 @@
                                                     {{ $feature->order->type->description }}
                                                 </p> --}}
                                 @endif
+
+                                {{-- vérifier si la propriété id de l'objet ranking est égale à 7, et si c'est le cas, passer à l'itération suivante. --}}
+                                @if ($feature->functionality->ranking->id == 7)
+                                    @continue
+                                @endif
+
                                 <ul>
                                     <li>
                                         {{ $feature->functionality->name }}
@@ -212,13 +222,45 @@
                                     </li>
                                 </ul>
                             @endforeach
+
+                            @foreach ($functionalities as $feature)
+                                @if (
+                                    $loop->first ||
+                                        $feature->order->type->category->name != $functionalities[$loop->index - 1]->order->type->category->name ||
+                                        $feature->order->type->name != $functionalities[$loop->index - 1]->order->type->name AND
+                                        $feature->functionality->ranking->id != 7)
+
+                                    <p>
+                                        Services Annexes
+                                    </p>
+                                @endif
+
+                                {{-- vérifier si la propriété id de l'objet ranking est égale à 7, et si c'est le cas, passer à l'itération suivante. --}}
+                                @if ($feature->functionality->ranking->id != 7)
+                                    @continue
+                                @endif
+
+                                <ul>
+                                    <li>
+                                        {{ $feature->functionality->name }}
+                                        @if (isset($continent_code) and $continent_code == 'AF')
+                                            ({{ number_format(($feature->order->type->price / 2) * $feature->functionality->ranking->coefficient, 0, ',', '.') }}
+                                            XAF)
+                                        @else
+                                            ({{ number_format(($feature->order->type->price / 655) * $feature->functionality->ranking->coefficient, 0, ',', '.') }}
+                                            €)
+                                        @endif
+                                    </li>
+                                </ul>
+                            @endforeach
+
                         </td>
                         <td>0%</td>
                         <td>
                             @if (isset($continent_code) and $continent_code == 'AF')
                                 {{ number_format($order->total_amount, 0, ',', '.') }} XAF
                             @else
-                                {{ number_format($order->total_amount  / 655, 0, ',', '.') }} €
+                                {{ number_format($order->total_amount / 655, 0, ',', '.') }} €
                             @endif
                         </td>
                         <td>1</td>
@@ -226,7 +268,7 @@
                             @if (isset($continent_code) and $continent_code == 'AF')
                                 {{ number_format($order->total_amount, 0, ',', '.') }} XAF
                             @else
-                                {{ number_format($order->total_amount  / 655, 0, ',', '.') }} €
+                                {{ number_format($order->total_amount / 655, 0, ',', '.') }} €
                             @endif
                         </td>
                     </tr>
@@ -238,7 +280,7 @@
                             @if (isset($continent_code) and $continent_code == 'AF')
                                 {{ number_format($order->total_amount, 0, ',', '.') }} XAF
                             @else
-                                {{ number_format($order->total_amount  / 655, 0, ',', '.') }} €
+                                {{ number_format($order->total_amount / 655, 0, ',', '.') }} €
                             @endif
                         </td>
                     </tr>
@@ -252,7 +294,7 @@
                             @if (isset($continent_code) and $continent_code == 'AF')
                                 {{ number_format($order->total_amount, 0, ',', '.') }} XAF
                             @else
-                                {{ number_format($order->total_amount  / 655, 0, ',', '.') }} €
+                                {{ number_format($order->total_amount / 655, 0, ',', '.') }} €
                             @endif
                         </td>
                     </tr>

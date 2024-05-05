@@ -61,7 +61,12 @@
 
     @if (!is_null($type_id) and $types)
         @foreach ($types_functionalities->sortBy('functionality.ranking.coefficient') as $item)
-            <div id="extraOptionGroup1" class="row option-box">
+            {{-- vérifier si la propriété id de l'objet ranking est égale à 6, et si c'est le cas, passer à l'itération suivante. --}}
+            @if ($item->functionality->ranking->id == 7)
+                @continue
+            @endif
+
+            <div id="" class="row option-box">
                 <div class="price-box"><sup></sup>{{ $item->functionality->ranking->coefficient }}</div>
 
                 <div class="col-md-12 col-sm-12 mt-5">
@@ -80,11 +85,49 @@
                         </span>
                     </label>
                     {{-- <label class="cbx" for="">
-                                    <input type="checkbox" name="selected_functionalities_ids[]"
-                                        value="{{ $item->functionality->id }}" data-autre-valeur="{{ $item->functionality->ranking->coefficient }}"
-                                        style="font-size: 1.5rem !important;" onchange="updatePrice(this.value)" />
-                                    <span id="extraOption1Title">Choisir</span>
-                                </label> --}}
+                            <input type="checkbox" name="selected_functionalities_ids[]"
+                                value="{{ $item->functionality->id }}" data-autre-valeur="{{ $item->functionality->ranking->coefficient }}"
+                                style="font-size: 1.5rem!important;" onchange="updatePrice(this.value)" />
+                            <span id="extraOption1Title">Choisir</span>
+                        </label> --}}
+                </div>
+                <div class="option-box-header">
+                    {{-- <h3>{{ $item->functionality->name }}</h3> --}}
+                    <p class="text-bold">{{ $item->functionality->description }}</p>
+                </div>
+            </div>
+        @endforeach
+
+        @foreach ($types_functionalities->sortBy('functionality.ranking.coefficient') as $item)
+            {{-- vérifier si la propriété id de l'objet ranking est égale à 6, et si c'est le cas, passer à l'itération suivante. --}}
+            @if ($item->functionality->ranking->id != 7)
+                @continue
+            @endif
+
+            <div id="" class="row option-box">
+                <div class="price-box"><sup></sup>{{ $item->functionality->ranking->coefficient }}</div>
+
+                <div class="col-md-12 col-sm-12 mt-5">
+                    <input type="checkbox" id="extraOption{{ $item->functionality->id }}" class="inp-cbx"
+                        name="selected_functionalities_ids[]" value="{{ $item->functionality->id }}"
+                        data-autre-valeur="{{ $item->functionality->ranking->coefficient }}"
+                        onchange="updatePrice(this.value)" />
+                    <label class="cbx" for="extraOption{{ $item->functionality->id }}">
+                        <span>
+                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                            </svg>
+                        </span>
+                        <span id="">
+                            {{ $item->functionality->name }}{{--  {{ $loop->iteration }} --}}
+                        </span>
+                    </label>
+                    {{-- <label class="cbx" for="">
+                            <input type="checkbox" name="selected_functionalities_ids[]"
+                                value="{{ $item->functionality->id }}" data-autre-valeur="{{ $item->functionality->ranking->coefficient }}"
+                                style="font-size: 1.5rem!important;" onchange="updatePrice(this.value)" />
+                            <span id="extraOption1Title">Choisir</span>
+                        </label> --}}
                 </div>
                 <div class="option-box-header">
                     {{-- <h3>{{ $item->functionality->name }}</h3> --}}
