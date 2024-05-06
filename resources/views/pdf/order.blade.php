@@ -227,9 +227,8 @@
                                 @if (
                                     $loop->first ||
                                         $feature->order->type->category->name != $functionalities[$loop->index - 1]->order->type->category->name ||
-                                        $feature->order->type->name != $functionalities[$loop->index - 1]->order->type->name AND
+                                        $feature->order->type->name != $functionalities[$loop->index - 1]->order->type->name and
                                         $feature->functionality->ranking->id != 7)
-
                                     <p>
                                         Services Annexes
                                     </p>
@@ -254,6 +253,12 @@
                                 </ul>
                             @endforeach
 
+                            @if ($order->additional_information)
+                                <p>
+                                    <strong>Informations complémentaires :</strong>
+                                </p>
+                                <p style="text-align: justify"> {{ $order->additional_information }}</p>
+                            @endif
                         </td>
                         <td>0%</td>
                         <td>
