@@ -11,7 +11,7 @@
                 position: fixed;
                 bottom: 20px;
                 left: 20px;
-                background-color: #4CAF50;
+                background-color: #FF914D;
                 /* #ff7b79 */
                 color: white;
                 padding: 20px;
@@ -23,7 +23,7 @@
             }
 
             .floating-button:hover {
-                background-color: #3e8e41;
+                background-color: #5271FF;
                 /* #ff9999 */
             }
         }
@@ -35,7 +35,7 @@
                 position: fixed;
                 bottom: 20px;
                 left: 20px;
-                background-color: #4CAF50;
+                background-color: #FF914D;
                 /* #ff7b79 */
                 color: white;
                 padding: 20px;
@@ -47,8 +47,8 @@
             }
 
             .floating-button:hover {
-                background-color: #3e8e41;
-                /* #ff9999 */
+                background-color: #5271FF;
+                /* #ff9999 FF6B6B*/
             }
         }
 
@@ -59,7 +59,7 @@
                 position: fixed;
                 bottom: 20px;
                 left: 20px;
-                background-color: #4CAF50;
+                background-color: #FF914D;
                 /* #ff7b79 */
                 color: white;
                 padding: 20px;
@@ -71,7 +71,7 @@
             }
 
             .floating-button:hover {
-                background-color: #3e8e41;
+                background-color: #5271FF;
                 /* #ff9999 */
             }
         }
