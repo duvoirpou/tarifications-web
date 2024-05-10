@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 {{-- Title --}}
-@section('title', 'Tarifications')
+@section('title', 'Devis')
 
 {{-- Content --}}
 
