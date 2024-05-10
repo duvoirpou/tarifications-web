@@ -6,8 +6,8 @@
                 <h5 class="footer-heading">Liens du menu</h5>
                 <ul class="list-unstyled nav-links">
                     <li><i class="fas fa-angle-right"></i> <a href="/" class="footer-link">Accueil</a></li>
-                    <li><i class="fas fa-angle-right"></i> <a href="{{ route('tarifications') }}"
-                            class="footer-link">Tarifications</a></li>
+                    <li><i class="fas fa-angle-right"></i> <a href="{{ route('devis') }}"
+                            class="footer-link">Devis</a></li>
                     {{-- <li><i class="fas fa-angle-right"></i> <a href="faq.html" class="footer-link">FAQ</a></li> --}}
                     <li><i class="fas fa-angle-right"></i> <a href="{{ route('contact') }}"
                             class="footer-link">Contacts</a></li>

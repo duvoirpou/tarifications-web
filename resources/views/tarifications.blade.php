@@ -1,6 +1,11 @@
 {{-- layout --}}
 @extends('layouts.app')
 
+{{-- Title --}}
+@section('title', 'Tarifications')
+
+{{-- Content --}}
+
 @section('style')
     <style>
         /* // Extra small devices (portrait phones, less than 576px) */

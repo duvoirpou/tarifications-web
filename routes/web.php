@@ -14,7 +14,7 @@ Route::get('/welcome', function () {
 });
 
 Route::get("/", [ClientController::class, "index"])->name("home");
-Route::get("/tarifications", [ClientController::class, "tarifications"])->name("tarifications");
+Route::get("/devis", [ClientController::class, "devis"])->name("devis");
 Route::get("/contact", [ClientController::class, "contact"])->name("contact");
 Route::resource('order', OrderController::class);
 

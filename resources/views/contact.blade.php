@@ -1,5 +1,9 @@
 {{-- layout --}}
 @extends('layouts.app')
+{{-- title --}}
+@section('title', 'Contact')
+
+{{-- content --}}
 
 @section('content')
     <main>

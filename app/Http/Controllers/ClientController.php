@@ -10,7 +10,7 @@ class ClientController extends Controller
         return view('index');
     }
 
-    public function tarifications() {
+    public function devis() {
         // Récupérer l'adresse IP de l'utilisateur
         $ip = $_SERVER['REMOTE_ADDR'];
 

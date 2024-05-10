@@ -23,7 +23,7 @@
                 <nav id="menu" class="main-menu">
                     <ul>
                         <li><span><a href="/">Accueil</a></span></li>
-                        <li><span><a href="/tarifications">Tarifications</a></span></li>
+                        <li><span><a href="/devis">Devis</a></span></li>
                         {{-- <li>
                             <span><a href="#">Calculators <i class="fa fa-chevron-down"></i></a></span>
                             <ul>
@@ -62,7 +62,15 @@
 <!-- Sub Header -->
 <div class="sub-header">
     <div class="container">
-        <h1>Tarifications web</h1>
+        @if (Route::is('home'))
+            <h1>Accueil</h1>
+        @endif
+        @if (Route::is('devis'))
+            <h1>Devis</h1>
+        @endif
+        @if (Route::is('contact'))
+            <h1>Contacts</h1>
+        @endif
     </div>
 </div>
 <!-- Sub Header End -->
