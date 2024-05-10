@@ -10,7 +10,7 @@
             <div class="content">
                 <h3>Création de site web sur mesure</h3>
                 <p>
-                    Générez votre devis de création de site web en cinq minutes !
+                    Générez votre devis de création de site web en quelques minutes !
                 </p>
                 <a href="{{ route('devis') }}" class="btn-1 medium">Allez-y !</a>
             </div>

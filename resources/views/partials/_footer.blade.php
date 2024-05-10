@@ -24,8 +24,7 @@
             <div class="col-md-4">
                 <h5 class="footer-heading">Contacts</h5>
                 <ul class="list-unstyled contact-links">
-                    <li><i class="icon icon-map-marker"></i><a href="#." class="footer-link">Adresse : Brazzaville,
-                            Congo</a>
+                    <li><i class="icon icon-map-marker"></i><a href="#." class="footer-link">Adresse : OCH, Arrêt Noelly, Pointe-Noire Congo</a>
                     </li>
                     <li><i class="icon icon-envelope3"></i><a href="mailto:contact@weegosoft.com"
                             class="footer-link">Email : contact@weegosoft.com</a></li>
