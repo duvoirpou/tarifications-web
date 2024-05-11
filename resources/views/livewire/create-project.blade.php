@@ -62,9 +62,9 @@
     @if (!is_null($type_id) and $types)
         @foreach ($types_functionalities->sortBy('functionality.ranking.coefficient') as $item)
             {{-- vérifier si la propriété id de l'objet ranking est égale à 6, et si c'est le cas, passer à l'itération suivante. --}}
-            @if ($item->functionality->ranking->id == 7)
+            {{-- @if ($item->functionality->ranking->id == 7)
                 @continue
-            @endif
+            @endif --}}
 
             <div id="" class="row option-box">
                 <div class="price-box"><sup></sup>{{ $item->functionality->ranking->coefficient }}</div>
@@ -98,8 +98,7 @@
             </div>
         @endforeach
 
-        @foreach ($types_functionalities->sortBy('functionality.ranking.coefficient') as $item)
-            {{-- vérifier si la propriété id de l'objet ranking est égale à 6, et si c'est le cas, passer à l'itération suivante. --}}
+        {{-- @foreach ($types_functionalities->sortBy('functionality.ranking.coefficient') as $item)
             @if ($item->functionality->ranking->id != 7)
                 @continue
             @endif
@@ -119,22 +118,22 @@
                             </svg>
                         </span>
                         <span id="">
-                            {{ $item->functionality->name }}{{--  {{ $loop->iteration }} --}}
+                            {{ $item->functionality->name }}<!--  {{ $loop->iteration }} -->
                         </span>
                     </label>
-                    {{-- <label class="cbx" for="">
+                    <!-- <label class="cbx" for="">
                             <input type="checkbox" name="selected_functionalities_ids[]"
                                 value="{{ $item->functionality->id }}" data-autre-valeur="{{ $item->functionality->ranking->coefficient }}"
                                 style="font-size: 1.5rem!important;" onchange="updatePrice(this.value)" />
                             <span id="extraOption1Title">Choisir</span>
-                        </label> --}}
+                        </label> -->
                 </div>
                 <div class="option-box-header">
-                    {{-- <h3>{{ $item->functionality->name }}</h3> --}}
+                    <!-- <h3>{{ $item->functionality->name }}</h3> -->
                     <p class="text-bold">{{ $item->functionality->description }}</p>
                 </div>
             </div>
-        @endforeach
+        @endforeach --}}
 
     @endif
     <!-- Calculator Area End -->

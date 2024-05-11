@@ -109,6 +109,11 @@
                                                         {{ $item->functionality->name }}
                                                     </td>
                                                     <td>
+                                                        <a href="{{ route('types-functionalities.destroy', $item->id) }}">
+                                                            <button class="btn btn-danger btn-sm">
+                                                                <i class="fa fa-trash"></i>
+                                                            </button>
+                                                        </a>
 
                                                     </td>
                                                 </tr>

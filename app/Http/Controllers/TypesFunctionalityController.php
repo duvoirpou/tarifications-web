@@ -42,4 +42,21 @@ class TypesFunctionalityController extends Controller
             return back()->with('error', 'Une erreur est survenue');
         }
     }
+    public function edit($id)
+    {
+        $type_functionality = TypesFunctionality::find($id);
+        return view('types_functionality.edit', compact('type_functionality'));
+    }
+    public function update(Request $request, $id)
+    {}
+    public function destroy($id)
+    {
+        $type_functionality = TypesFunctionality::find($id);
+        $query = $type_functionality->delete();
+        if ($query) {
+            return back()->with('success', 'Type-Functionality supprimé avec succès');
+        } else {
+            return back()->with('error', 'Une erreur est survenue');
+        }
+    }
 }

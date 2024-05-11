@@ -33,4 +33,5 @@ Route::get("/admin/functionalities", [FunctionalityController::class, "index"])-
 Route::resource('functionality', FunctionalityController::class);
 
 Route::get("/admin/types-functionalities", [TypesFunctionalityController::class, "index"])->name("admin.types-functionalities");
+Route::get("/admin/types-functionality/{id}", [TypesFunctionalityController::class, "destroy"])->name("types-functionalities.destroy");
 Route::resource('type-functionality', TypesFunctionalityController::class); */
