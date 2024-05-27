@@ -7,8 +7,8 @@
         <div class="order">
             <div class="container">
                 <!-- Form -->
-                {{-- <form method="POST" id="orderForm" name="orderForm" action="php/send_order_1_attached_pdf.php"> --}}
-                <form method="POST" id="orderForm" name="orderForm" action="{{ route('order.store') }}">
+                {{-- <form method="POST" id="type" name="type" action="php/send_order_1_attached_pdf.php"> --}}
+                <form method="POST" id="type" name="type" action="{{ route('type.store') }}">
                     @csrf
                     <div class="row">
                         <!-- Calculator Area End -->
@@ -35,13 +35,16 @@
                                     </p>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
-                                    <label for="name">Nouveau type</label>
-                                    <input id="name" class="form-control" name="name" type="text" value="{{ old('name') }}" />
-                                    @error('name')
-                                        <span class="text-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                                    <div class="form-group">
+                                        <label for="name">Nouveau type</label>
+                                        <input id="name" class="form-control" name="name" type="text"
+                                            value="{{ old('name') }}" />
+                                        @error('name')
+                                            <span class="text-danger">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
@@ -56,9 +59,32 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="price">Prix</label>
+                                        <input id="price" class="form-control" name="price" type="text"
+                                            value="{{ old('price') }}" />
+                                        @error('price')
+                                            <span class="text-danger">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="inputMessage">Description</label>
+                                        <textarea name="description" id="inputMessage" class="form-control"></textarea>
+                                        @error('description')
+                                            <span class="text-danger">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
 
                                 <div class="col-md-12 col-sm-12 mt-4">
-                                    <button type="submit" class="btn btn-success btn-sm" >
+                                    <button type="submit" class="btn btn-success btn-sm">
                                         <i class="fa fa-plus"></i>
                                         Ajouter
                                     </button>
@@ -79,6 +105,8 @@
                                                 <th scope="col">#</th>
                                                 <th scope="col">Nom</th>
                                                 <th scope="col">Catégorie</th>
+                                                <th scope="col">Prix</th>
+                                                <th scope="col">Description</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
@@ -94,6 +122,12 @@
                                                     </td>
                                                     <td>
                                                         {{ $item->category->name }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $item->price }}
+                                                    </td>
+                                                    <td>
+                                                        {{ $item->description }}
                                                     </td>
                                                     <td>
 
