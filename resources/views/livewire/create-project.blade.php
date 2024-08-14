@@ -28,7 +28,9 @@
             <h3 style="margin-top: 50px">Catégories & types</h3>
             <p>
                 @if ($type_id && $type_id != 0)
-                    {{ $get_type->description }}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{ $get_type->description }}</strong>
+                </div>
                 @else
                     Choisissez une catégorie et un type de projet pour voir la description
                 @endif
@@ -58,6 +60,19 @@
             </div>
         </div>
     </div>
+
+    @if (!is_null($type_id) and $types)
+    <div class="row option-box" wire:loading.delay.remove>
+        <div class="col-md-12 col-sm-12">
+            <div style="margin: 0 15px 10px 15px; width: 100%;">
+            <h3 class="text-center" style=" font-size: 20px; color: #555;">
+                Cochez une ou plusieurs option(s)
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 72 72"><path fill="#ffd3b6" d="M59.9 33.9C52 27.1 47.7 16.4 46 13.1c0 0 0-.1-.1-.1c-.2-.4-.4-.7-.5-.8c-1-1.4-2.3-2.5-3.8-3.2V2.9c0-1.6-1.3-2.9-2.9-2.9H20.1c-1.6 0-2.9 1.3-2.9 2.9V11c-2.8 2.3-4.6 5.9-4.6 9.8v26.5c0 2.2 1.8 4.1 4.1 4.1c1 0 2-.4 2.7-1c0 0 .1 0 .2-.1q1.2-1.2 2.4 0c.7.7 1.7 1.1 2.8 1.1s2-.4 2.7-1c0 0 .1 0 .2-.1c.8-.8 1.6-.8 2.4-.1c.7.7 1.8 1.2 2.9 1.2s2-.4 2.7-1c0 0 .1 0 .2-.1q.45-.45.9-.6V68c0 2.2 1.8 4.1 4.1 4.1s4-1.8 4-4.1V33c1 1.2 1.9 1.6 3.2 2.9c7.2 6.9 10.7 5 12.3 3.6c1.4-1.5 1-4-.5-5.6"/><path fill="#f2c7aa" d="M25.2 8.1h12.5q2.1 0 3.9.9V7.7c0-1.2-1-2.2-2.2-2.2h-20c-1.2 0-2.2 1-2.2 2.2V11c2.2-1.8 5-2.9 8-2.9"/></svg>
+            </h3>
+            </div>
+        </div>
+    </div>
+    @endif
 
     @if (!is_null($type_id) and $types)
         @foreach ($types_functionalities->sortBy('functionality.ranking.coefficient') as $item)
@@ -93,7 +108,9 @@
                 </div>
                 <div class="option-box-header">
                     {{-- <h3>{{ $item->functionality->name }}</h3> --}}
-                    <p class="text-bold">{{ $item->functionality->description }}</p>
+                    <div class="alert alert-info alert-dismissible fade show mt-2" role="alert">
+                    <p style="font-weight: bold">{{ $item->functionality->description }}</p>
+                    </div>
                 </div>
             </div>
         @endforeach

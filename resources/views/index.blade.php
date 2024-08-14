@@ -9,7 +9,7 @@
         <div class="hero-home bg-mockup">
             <div class="content">
                 <h3>Création de sites web sur-mesure</h3>
-                <p>
+                <p class="text-center">
                     Générez votre devis de création de site web en quelques minutes !
                 </p>
                 <a href="{{ route('devis') }}" class="btn-1 medium">Allez-y !</a>
@@ -29,7 +29,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-8 mx-auto">
-                            <p class="lead">
+                            <p class="lead text-center">
                                 Nous vous proposons des services complets et personnalisés pour répondre à tous vos besoins.
                             </p>
                         </div>

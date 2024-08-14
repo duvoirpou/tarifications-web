@@ -32,6 +32,11 @@
 
     <!-- Main CSS -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <style>
+        p{
+            text-align: justify;
+        }
+    </style>
 
     @yield('style')
 

@@ -35,7 +35,7 @@
                                 <div class="box text-center">
                                     <div class="icon d-flex align-items-end"><i class="icon icon-map-marker"></i></div>
                                     <h3 class="contact-title">Adresse</h3>
-                                    <p>OCH, Arrêt Noelly, Pointe-Noire Congo</p>
+                                    <p class="text-center">OCH, Arrêt Noelly, Pointe-Noire Congo</p>
                                 </div>
                             </a>
                         </div>
@@ -44,7 +44,7 @@
                                 <div class="box text-center">
                                     <div class="icon d-flex align-items-end"><i class="icon icon-email"></i></div>
                                     <h3 class="contact-title">Email</h3>
-                                    <p>contact@weegosoft.com</p>
+                                    <p class="text-center">contact@weegosoft.com</p>
                                 </div>
                             </a>
                         </div>
@@ -53,7 +53,7 @@
                                 <div class="box text-center">
                                     <div class="icon d-flex align-items-end"><i class="icon icon-phone-handset"></i></div>
                                     <h3 class="contact-title">Téléphone</h3>
-                                    <p>+242 05 096 32 37</p>
+                                    <p class="text-center">+242 05 096 32 37</p>
                                 </div>
                             </a>
                         </div>
